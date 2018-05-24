@@ -81,7 +81,38 @@ body, html {
     
 <script>
   function cookieAlert(){
-    alert("By using this site, you consent with the usage of cookies to save user data. (not a joke)");   
+    if(!(getCookie("cookies") === "yes")){
+      if(confirm("By using this site, you consent with the usage of cookies to save user data. (not a joke)")){
+        setCookie("cookies", "yes", 9999);
+      }else{
+        close();   
+      }
+    }
+  }
+  function windowClose() {
+    window.open('','_parent','');
+    window.close();
+  }
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
   }
 </script>
 <!-- parallax background with maris dating foreground -->
