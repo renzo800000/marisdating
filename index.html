@@ -50,6 +50,14 @@ body, html {
     background-image: url('mountains.jpg');
     min-height: 100%;
 }
+    
+.padding-10{
+    height:10%;    
+}
+
+.padding-bottom{
+    height:10%;    
+}
 
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
@@ -61,6 +69,9 @@ body, html {
     }
     .block{
         background: rgb(255, 255, 255);
+    }
+    .padding-bottom{
+        height:0%;
     }
 }
 </style>
@@ -80,7 +91,7 @@ body, html {
    
     
 <!-- spacing between blocks, 10% of total screen size -->
-<div style="height:10%">
+<div class="padding-10">
 </div>
 
 <!-- google forms embedded in iframe on bottom of page -->
@@ -88,8 +99,8 @@ body, html {
     <button class="w3-button w3-center" type="button">Find the one</button>
 </div>
     
-<!-- 40% of screen size at bottom so button part can scroll up more --> 
-<div style="height:40%">
+<!-- 10% of screen size at bottom so button part can scroll up more --> 
+<div class="padding-bottom">
 </div>
 </body>
 </html>
