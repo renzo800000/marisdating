@@ -73,6 +73,12 @@ body, html {
 <body onload="cookieAlert()">
     
 <script>
+  function signIn(){
+    alert("sign in script");    
+  }
+  function signUp(){
+    alert("sign up script");   
+  }
   function cookieAlert(){
     if(!(getCookie("cookies") === "yes")){
       if(confirm("By using this site, you consent with the usage of cookies to save user data. (not a joke)")){
@@ -128,7 +134,9 @@ body, html {
 
 <!-- go to form -->
 <div class="w3-center w3-opacity-min" style="white-space:nowrap;">
-    <button class="w3-opacity-min w3-button w3-center w3-black" type="button">Find the one</button>
+    <button onclick="signUp()" class="w3-opacity-min w3-button w3-center w3-black" type="button">Sign up</button>
+    <h3 class="w3-center">OR</h3>
+    <button onclick="signIn()" class="w3-opacity-min w3-button w3-center w3-black" type="button">Sign in</button>
 </div>
     
 <!-- 10% of screen size at bottom so button part can scroll up more --> 
