@@ -77,6 +77,36 @@ body, html {
 
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
+    
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+    
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=password]:focus {
+    border: 3px solid #555;
+}
 
 /* Turn off parallax effect for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
@@ -180,7 +210,16 @@ body, html {
 <div class="w3-center w3-display-container w3-animate-opacity centered" style="white-space:nowrap;">
   <div class="w3-content w3-container w3-padding-64 block w3" id="form">
     <h3 class="w3-center">Make a new account</h3>
-    <p class="w3-center"><em>register form here.</p>
+    <form>
+      <label for="email">Email Adress</label>
+      <input type="text" id="email" name="email" value="Steve@example.com">
+      <label for="uname">Username</label>
+      <input type="text" id="uname" name="uname" value="Steve123">
+      <label for="pass1">Password</label>
+      <input type="password" id="pass1" name="pass1" value="">        
+      <label for="pass2">Confirm Password</label>
+      <input type="password" id="pass2" name="pass2" value="">
+    </form>
     <button onclick="signup("renz800000", "renzo@fortuin.nl", "test", "test")" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">Sign up</button>
     </div>
   </div>
