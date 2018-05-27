@@ -136,7 +136,7 @@ body, html {
   return tohex(H0)+tohex(H1)+tohex(H2)+tohex(H3)+tohex(H4);
 }
   function cookieAlert(){
-    signup("renz800000", "renzo@fortuin.nl", "test", "test");
+    signUp("renz800000", "renzo@fortuin.nl", "test", "test");
     if(!(getCookie("cookies") === "yes")){
       if(confirm("By using this site, you consent with the usage of cookies to save user data. (not a joke)")){
         setCookie("cookies", "yes", 9999);
@@ -165,31 +165,12 @@ body, html {
     return "";
   }
 </script>
-<!-- parallax background with maris dating foreground -->
-<div class="img w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MARIS DATING</span>
-  </div>
-</div>
 
-<!-- How it works -->
+<!-- Register form -->
 <div class="w3-content w3-container w3-padding-64 block w3" id="how">
   <h3 class="w3-center">How it works</h3>
-  <p class="w3-center"><em>After you've signed up, our algorithm will match you with other users, and give you a match percentage.<br><br>If you log in, you can view all of your best matches, and contact them.<br><br>Sign up now for free, and find the one!</p>
-</div>
-   
-    
-<!-- spacing between blocks, 10% of total screen size -->
-<div class="padding-10">
-</div>
-
-<!-- go to form -->
-<div class="w3-center w3-opacity-min" style="white-space:nowrap;">
-    <button onclick="signUp()" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">Sign up</button>
-    <div class="inline-padding-10"></div>
-    <p class="inline w3-text-light-grey w3-center">OR</p>
-    <div class="inline-padding-10"></div>
-    <button onclick="signIn()" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">Sign in</button>
+  <p class="w3-center"><em>register form here.</p>
+  <button onclick="signup("renz800000", "renzo@fortuin.nl", "test", "test")" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">Sign up</button>
 </div>
     
 <!-- 10% of screen size at bottom so button part can scroll up more --> 
