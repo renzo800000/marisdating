@@ -64,6 +64,11 @@ body, html {
   display:inline;
   width:10%;
 }
+    
+.form-label{
+  text-align: left;
+  width:20%
+}
 
 /* Backround image */
 .img{
@@ -211,20 +216,20 @@ input[type=password]:focus {
   <div class="w3-content w3-container w3-padding-64 block w3" id="form">
     <h3 class="w3-center">Make a new account</h3>
     <form>
-      <div class="formGroup" width="60%">
-        <label for="email">Email Adress</label>
+      <div class="formGroup">
+        <label class="form-label" for="email">Email Adress</label>
         <input type="text" id="email" name="email" value="Steve@example.com">
       </div>
-      <div class="formGroup" width="60%">
-        <label for="uname">Username</label>
+      <div class="formGroup">
+        <label class="form-label" for="uname">Username</label>
         <input type="text" id="uname" name="uname" value="Steve123">
       </div>
-      <div class="formGroup" width="60%">
-        <label for="pass1">Password</label>
+      <div class="formGroup">
+        <label class="form-label" for="pass1">Password</label>
         <input type="password" id="pass1" name="pass1" value="">   
       </div>
-      <div class="formGroup" width="60%">     
-        <label for="pass2">Confirm Password</label>
+      <div class="formGroup">     
+        <label class="form-label" for="pass2">Confirm Password</label>
         <input type="password" id="pass2" name="pass2" value="">
       </div>
     </form>
