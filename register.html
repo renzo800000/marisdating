@@ -144,14 +144,39 @@ input[type=password]:focus {
     messagingSenderId: "736337662680"
   };
   firebase.initializeApp(config);
-</script>
+    </script>
     
 <script>
-  function signUp(username, email, password, password2){
-    if(!(password === password2)){
+  function signUp(){
+      var username = document.getElementById("uname").value;
+      var email = document.getElementById("email").value;
+      var pass1 = document.getElementById("pass1").value;
+      var pass2 = document.getElementById("pass2").value;
+      
+    if(username.length < 1){
+      alert("Please enter a username.");
+      return;
+    }
+    //check duplicate username
+      
+    if(email.length < 1){
+      alert("Please enter your email adress.");
+      return;
+    }
+    //check if it is an email
+    
+    if(pass1.length < 8){
+      alert("Your password should contain at least 8 characters.");
+      return;                    
+    }
+    if(!(pass1 === pass2)){
       alert("Passwords do not match.");
       return;
     }
+    addAccount(username, email, pass1);
+      
+  }
+  function addAccount(username, email, password){
     password = sha1(password);
     firebase.database().ref('users/' + username).set({
       email: email,
