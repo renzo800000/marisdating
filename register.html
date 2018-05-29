@@ -208,7 +208,6 @@ input[type=password]:focus {
   return tohex(H0)+tohex(H1)+tohex(H2)+tohex(H3)+tohex(H4);
 }
   function cookieAlert(){
-    document.body.style.overflow = 'hidden';
     if(!(getCookie("cookies") === "yes")){
       if(confirm("By using this site, you consent with the usage of cookies to save user data. (not a joke)")){
         setCookie("cookies", "yes", 9999);
