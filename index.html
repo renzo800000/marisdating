@@ -89,6 +89,7 @@ body, html {
     window.location.href = "http://marisdating.tk/register";
   }
   function cookieAlert(){
+    document.body.style.overflow = 'hidden';
     if(!(getCookie("cookies") === "yes")){
       if(confirm("By using this site, you consent with the usage of cookies to save user data. (not a joke)")){
         setCookie("cookies", "yes", 9999);
