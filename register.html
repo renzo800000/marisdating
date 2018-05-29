@@ -153,35 +153,66 @@ input[type=password]:focus {
       var pass1 = document.getElementById("pass1").value;
       var pass2 = document.getElementById("pass2").value;
       
+    var DB = firebase.database();
+      
+    //check if username is present
     if(username.length < 1){
       alert("Please enter a username.");
       return;
     }
+      
     //check duplicate username
       
+    //check if email val is longer than 0
     if(email.length < 1){
       alert("Please enter your email adress.");
       return;
     }
-    //check if it is an email
     
+    //check if val is email adress
+    if(!validateEmail(email)){
+      alert("Please enter a correct email adress.");
+      return;
+    }
+    
+    //check for duplicate email
+    DB.ref.child("users").orderByChild("email").equalTo(email.toLowerCase()).once("value",snapshot => {
+      const userData = snapshot.val();
+      if (userData){
+        alert("That email adress is already in use.");
+        return;
+      }
+    });
+      
+    //check password length
     if(pass1.length < 8){
       alert("Your password should contain at least 8 characters.");
       return;                    
     }
+      
+    //check password match
     if(!(pass1 === pass2)){
       alert("Passwords do not match.");
       return;
     }
+    
+    //if all tests are successfull, add account.
     addAccount(username, email, pass1);
       
   }
   function addAccount(username, email, password){
-    password = sha1(password);
+    password = sha1(password.toLowerCase());
+    username = username.toLowerCase();
+    password = password.toLowerCase();
     firebase.database().ref('users/' + username).set({
       email: email,
       password: password
     });
+  }
+    
+  function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   }
   
   function sha1(msg)
