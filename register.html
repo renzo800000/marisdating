@@ -190,7 +190,7 @@ input[type=password]:focus {
     //check for duplicate username
     var user = DB.ref('users/' + username);
     user.on('value', function(snapshot) {
-      if(!(snapshot.val()===null)){
+      if(!snapshot.val()){
         alert("That username is already taken.");
         return;
       }
