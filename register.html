@@ -176,12 +176,14 @@ input[type=password]:focus {
     }
     
     //check for duplicate email
-    DB.ref.child("users").orderByChild("email").equalTo(email.toLowerCase()).once("value",snapshot => {
-      const userData = snapshot.val();
-      if (userData){
-        alert("That email adress is already in use.");
-        return;
-      }
+    var leadsRef = database.ref('users');
+    leadsRef.on('email', function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        if(childSnapshot.val() === email){
+          alert("This email adress already belongs to an account.");
+          return;
+        }
+      });
     });
       
     //check password length
