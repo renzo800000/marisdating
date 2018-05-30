@@ -176,11 +176,17 @@ input[type=password]:focus {
     }
     
     //check for duplicate email
-    var user = firebase.database().ref('users/' + username);
+    alert("1");
+    var user = DB.ref('users/' + username);
+    alert("2");
     alert(user);
+    alert("3");
     user.on('value', function(snapshot) {
+      alert("4");
       alert(snapshot.val());
+      alert("5");
     });
+    alert("6");
       
     //check password length
     if(pass1.length < 8){
