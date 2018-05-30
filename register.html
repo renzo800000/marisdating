@@ -176,14 +176,10 @@ input[type=password]:focus {
     }
     
     //check for duplicate email
-    var leadsRef = database.ref('users');
-    leadsRef.on('email', function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-        if(childSnapshot.val() === email){
-          alert("This email adress already belongs to an account.");
-          return;
-        }
-      });
+    var user = firebase.database().ref('users/' + username);
+    alert(user);
+    user.on('value', function(snapshot) {
+      alert(snapshot.val());
     });
       
     //check password length
