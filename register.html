@@ -161,7 +161,7 @@ input[type=password]:focus {
       return;
     }
       
-    //check duplicate username
+    //check duplicate email
       
     //check if email val is longer than 0
     if(email.length < 1){
@@ -174,19 +174,6 @@ input[type=password]:focus {
       alert("Please enter a correct email adress.");
       return;
     }
-    
-    //check for duplicate email
-    alert("1");
-    var user = DB.ref('users/' + username);
-    alert("2");
-    alert(user);
-    alert("3");
-    user.on('value', function(snapshot) {
-      alert("4");
-      alert(snapshot.val());
-      alert("5");
-    });
-    alert("6");
       
     //check password length
     if(pass1.length < 8){
@@ -199,9 +186,17 @@ input[type=password]:focus {
       alert("Passwords do not match.");
       return;
     }
-    
-    //if all tests are successfull, add account.
-    addAccount(username, email, pass1);
+      
+    //check for duplicate username
+    var user = DB.ref('users/' + username);
+    user.on('value', function(snapshot) {
+      if(!(snapshot.val()===null)){
+        alert("That username is already taken.");
+        return;
+      }
+      //if all tests are successfull, add account.
+      addAccount(username, email, pass1);
+    });
       
   }
   function addAccount(username, email, password){
