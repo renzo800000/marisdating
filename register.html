@@ -190,14 +190,13 @@ input[type=password]:focus {
     //check for duplicate username
     var user = DB.ref('users/' + username);
     user.on('value', function(snapshot) {
-      if(!snapshot.val()){
+      if(snapshot.val()){
         alert("That username is already taken.");
         return;
-      }else{
-        //if all tests are successfull, add account.
-        alert("signup successfull (remove later)");
-        addAccount(username, email, pass1);
       }
+      //if all tests are successfull, add account.
+      alert("signup successfull (remove later)");
+      addAccount(username, email, pass1);
     });
       
   }
