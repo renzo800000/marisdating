@@ -188,7 +188,7 @@ input[type=password]:focus {
     }
       
     //check for duplicate username
-    firebase.database().ref("users/" + username + "/email").once("value", snapshot => {
+    firebase.database().ref("users/" + username.toLowerCase() + "/email").once("value", snapshot => {
       const email = snapshot.val();
       if (email){
           alert("That username is already taken.");
@@ -202,6 +202,7 @@ input[type=password]:focus {
     password = sha1(password.toLowerCase());
     username = username.toLowerCase();
     password = password.toLowerCase();
+    email = email.toLowerCase();
     firebase.database().ref('users/' + username).set({
       email: email,
       password: password
