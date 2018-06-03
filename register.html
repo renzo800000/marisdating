@@ -189,8 +189,8 @@ input[type=password]:focus {
       
     //check for duplicate username
     DB.ref("users/" + username.toLowerCase() + "/email").once("value", snapshot => {
-      const email = snapshot.val();
-      if (email){
+      const exists = snapshot.val();
+      if (exists){
           alert("That username is already taken.");
       }else{
          addAccount(DB, username, email, pass1);   
