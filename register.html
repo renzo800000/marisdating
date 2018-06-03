@@ -188,22 +188,22 @@ input[type=password]:focus {
     }
       
     //check for duplicate username
-    firebase.database().ref("users/" + username.toLowerCase() + "/email").once("value", snapshot => {
+    DB.ref("users/" + username.toLowerCase() + "/email").once("value", snapshot => {
       const email = snapshot.val();
       if (email){
           alert("That username is already taken.");
       }else{
-         addAccount(username, email, pass1);   
+         addAccount(DB, username, email, pass1);   
       }
     });
       
   }
-  function addAccount(username, email, password){
+  function addAccount(DB, username, email, password){
     password = sha1(password.toLowerCase());
     username = username.toLowerCase();
     password = password.toLowerCase();
     email = email.toLowerCase();
-    firebase.database().ref('users/' + username).set({
+    DB.ref('users/' + username).set({
       email: email,
       password: password
     });
