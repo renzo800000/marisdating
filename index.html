@@ -102,11 +102,11 @@ body, html {
     for (i = 0;i < elementList.length; i++) {
         var element = elementList[i];
         var fadeEffect = setInterval(function () {
-          if (!fadeTarget.style.opacity) {
-            fadeTarget.style.opacity = 1;
+          if (!element.style.opacity) {
+            element.style.opacity = 1;
           }
-          if (fadeTarget.style.opacity > 0) {
-            fadeTarget.style.opacity -= 0.01;
+          if (element.style.opacity > 0) {
+            element.style.opacity -= 0.01;
           } else {
             clearInterval(fadeEffect);
           }
