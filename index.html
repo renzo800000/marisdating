@@ -91,7 +91,19 @@ body, html {
     alert("sign in script");    
   }
   function signUp(){
-    window.location.href = "http://marisdating.tk/register";
+    go("http://marisdating.tk/register");
+  }
+    
+  function go(location){
+      // Loop through each element with the class name of slidePanel
+    var elementList = document.querySelectorAll('w3-animate-opacity');
+
+    // Iterate through each element in the array
+    for (i = 0; < elementList.length; i++) {
+        var element = elementList[i];
+        element.classList.add("w3-animate-opacity-reverse");
+    }    
+    setTimeout(function(){window.location.href = location;}, 1000);
   }
   function cookieAlert(){
     if(!(getCookie("cookies") === "yes")){
@@ -147,7 +159,7 @@ body, html {
 </div>
 
 <!-- sign up / sign in -->
-<div class="w3-center w3-opacity-min" style="white-space:nowrap;">
+<div class="w3-center w3-opacity-min w3-animate-opacity" style="white-space:nowrap;">
     <button onclick="signUp()" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">Sign up</button>
     <div class="inline-padding-10"></div>
     <p class="inline w3-text-light-grey w3-center">OR</p>
