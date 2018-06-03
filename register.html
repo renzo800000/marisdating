@@ -188,18 +188,14 @@ input[type=password]:focus {
     }
       
     //check for duplicate username
-      alert(1);
     firebase.database().ref("users/" + username + "/email").once("value", snapshot => {
-      alert(2);
       const email = snapshot.val();
-      alert(3);
       if (email){
-          alert(4);
-          console.log("user exists!");
+          alert("That username is already taken.");
+      }else{
+         addAccount(username, email, pass1);   
       }
-      alert(5);
     });
-    alert(6);
       
   }
   function addAccount(username, email, password){
