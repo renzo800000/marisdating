@@ -139,6 +139,14 @@ input[type=password]:focus {
       var username = document.getElementById("uname").value;
       var password = sha1(document.getElementById("password").value);
       
+      if(username.length < 1){
+        alert("Please enter a username.");
+      }
+      
+      if(password.length < 1){
+        alert("Please enter a password.");    
+      }
+      
       alert("logging in:\nusername: " + username + "\npassword: " + password);
       
   }
