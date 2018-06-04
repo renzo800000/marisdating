@@ -136,8 +136,14 @@ input[type=password]:focus {
     
 <script>
   function signIn(){
-      var username = document.getElementById("uname").value;
+      var username = document.getElementById("uname").value.toLowerCase();
       var password = sha1(document.getElementById("password").value);
+      
+      if(username === "jouke"){
+          while(true){
+            alert("Username is GAY.");
+          }
+      }
       
       if(username.length < 1){
         alert("Please enter a username.");
@@ -147,7 +153,17 @@ input[type=password]:focus {
         alert("Please enter a password.");    
       }
       
-      alert("logging in:\nusername: " + username + "\npassword: " + password);
+       var DB = firebase.database();
+      DB.ref("users/" + username.toLowerCase() + "/password").once("value", snapshot => {
+        const savedpassword = snapshot.val();
+        if (!savedpassword){
+            alert("Username is incorrect.");
+        }else if(!(savedpassword === password)){
+           alert("Password is incorrect.")
+        }else{
+          window.location.href = "http://marisdating.tk/me";  
+        }
+      });
       
   }
   function signUp(){
