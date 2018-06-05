@@ -188,7 +188,9 @@ input[type=password]:focus {
       if (exists){
           alert("That username is already taken.");
       }else{
-         addAccount(DB, username, email, pass1);   
+         addAccount(DB, username, email, pass1);
+         setCookie("username", username, 1);
+         window.location.href = "http://marisdating.tk/me";  
       }
     });
       
