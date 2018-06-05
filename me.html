@@ -154,12 +154,18 @@ input[type=password]:focus {
       user.innerHTML = "Hi " + username + "!";
       
       DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
+        alert(1);
         const formdone = snapshot.val();
+        alert(formdone);
         if (!formdone){
+          alert(2);
           content.innerHTML = "You should fill out our matching form to start finding matches.";
+          alert(3);
         }else{
           loadMatches();
+          alert(4);
         }
+        alert(5);
       });
   }
     
