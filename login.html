@@ -137,7 +137,7 @@ input[type=password]:focus {
 <script>
   function signIn(){
       var username = document.getElementById("uname").value.toLowerCase();
-      var password = sha1(document.getElementById("password").value);
+      var password = document.getElementById("password").value;
       
       if(username === "jouke"){
           while(true){
@@ -152,6 +152,8 @@ input[type=password]:focus {
       if(password.length < 1){
         alert("Please enter a password.");    
       }
+      
+      password = sha1(password);
       
        var DB = firebase.database();
       DB.ref("users/" + username.toLowerCase() + "/password").once("value", snapshot => {
