@@ -143,8 +143,8 @@ input[type=password]:focus {
     
 <script>
   function signUp(){
-      var username = document.getElementById("uname").value;
-      var email = document.getElementById("email").value;
+      var username = document.getElementById("uname").value.toLowerCase();
+      var email = document.getElementById("email").value.toLowerCase();
       var pass1 = document.getElementById("pass1").value;
       var pass2 = document.getElementById("pass2").value;
       
