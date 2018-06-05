@@ -154,11 +154,13 @@ input[type=password]:focus {
       if(username.length < 1){
         ufield.setAttribute("class", "invalid");
         alert("Please enter a username.");
+        return;
       }
       
       if(password.length < 1){
         pfield.setAttribute("class", "invalid");
         alert("Please enter a password.");    
+        return;
       }
       
       password = sha1(password);
@@ -169,9 +171,11 @@ input[type=password]:focus {
         if (!savedpassword){
             ufield.setAttribute("class", "invalid");
             alert("Username is incorrect.");
+            return;
         }else if(!(savedpassword === password)){
            pfield.setAttribute("class", "invalid");
-           alert("Password is incorrect.")
+           alert("Password is incorrect.");
+           return;
         }else{
           window.location.href = "http://marisdating.tk/me";  
         }
