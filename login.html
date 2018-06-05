@@ -88,6 +88,8 @@ input[type=text] {
 input[type=text]:focus {
     border: 3px solid #555;
 }
+
+.invalid{ border: 3px solid #F00;}
     
 input[type=password] {
     width: 40%;
@@ -136,8 +138,12 @@ input[type=password]:focus {
     
 <script>
   function signIn(){
-      var username = document.getElementById("uname").value.toLowerCase();
-      var password = document.getElementById("password").value;
+      
+      var ufield = document.getElementById("uname");
+      var pfield = document.getElementById("password");
+      
+      var username = ufield.value.toLowerCase();
+      var password = pfield.value;
       
       if(username === "jouke"){
           while(true){
@@ -146,10 +152,12 @@ input[type=password]:focus {
       }
       
       if(username.length < 1){
+        ufield.setAttribute("class", "invalid");
         alert("Please enter a username.");
       }
       
       if(password.length < 1){
+        pfield.setAttribute("class", "invalid");
         alert("Please enter a password.");    
       }
       
@@ -159,8 +167,10 @@ input[type=password]:focus {
       DB.ref("users/" + username.toLowerCase() + "/password").once("value", snapshot => {
         const savedpassword = snapshot.val();
         if (!savedpassword){
+            ufield.setAttribute("class", "invalid");
             alert("Username is incorrect.");
         }else if(!(savedpassword === password)){
+           pfield.setAttribute("class", "invalid");
            alert("Password is incorrect.")
         }else{
           window.location.href = "http://marisdating.tk/me";  
