@@ -162,8 +162,12 @@ input[type=password]:focus {
             unfade(content);
             setTimeout(function(){
               var newblock = document.createElement("div");
-              newblock.setAttribute("class", "w3-center w3-display-container w3-animate-opacity centered block");
+              newblock.setAttribute("class", "w3-content w3-container w3-padding-64 block w3 w3-animate-opacity");
               newblock.setAttribute("style", "white-space:nowrap;");
+                
+              var text = document.createElement("h3");
+              text.innerHTML = "test";
+              newblock.appendChild(text);
               document.getElementsByTagName('body')[0].appendChild(newblock);
             },700);
           }, 700);
