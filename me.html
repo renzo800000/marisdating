@@ -181,7 +181,7 @@ input[type=password]:focus {
           setTimeout(function(){
             content.innerHTML = "You should fill out our matching form to start finding matches.";
             unfade(content);
-          }, 2000)
+          }, 1000)
         }else{
           loadMatches();
         }
@@ -229,7 +229,6 @@ input[type=password]:focus {
     var timer = setInterval(function () {
         if (op <= 0.1){
             clearInterval(timer);
-            element.style.display = 'none';
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
