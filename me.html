@@ -233,7 +233,7 @@ input[type=password]:focus {
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
+        op -= 0.1;
     }, 50);
 }
 function unfade(element) {
@@ -246,7 +246,7 @@ function unfade(element) {
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
-    }, 10);
+    }, 50);
 }
   function setCookie(cname, cvalue, exdays) {
     var d = new Date();
