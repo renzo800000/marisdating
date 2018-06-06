@@ -172,20 +172,16 @@ input[type=password]:focus {
       var user = document.getElementById("username");
       var content = document.getElementById("content_text");
       
-      content.style.content = 'none';
-      content.style.opacity = 0;
-      
       user.innerHTML = "Hi " + username + "!";
       
       DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
         const formdone = snapshot.val();
         if (!formdone){
-          
           fade(content);
           setTimeout(function(){
             content.innerHTML = "You should fill out our matching form to start finding matches.";
             unfade(content);
-          }, 500)
+          }, 2000)
         }else{
           loadMatches();
         }
