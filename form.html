@@ -172,7 +172,12 @@ input[type=password]:focus {
   }
     
   function next(){
-    window.location.href = ("http://marisdating.tk/form?question=" + (currentQuestion() + 1));    
+    var mainBlock = document.getElementById("main");
+    setTimeout(function(){
+      window.location.href = ("http://marisdating.tk/form?question=" + (currentQuestion() + 1));
+    },700);
+    fadeout(mainBlock);
+    
   }
     
   function currentQuestion(){
@@ -270,9 +275,8 @@ function unfade(element) {
     return "";
   }
 </script>
-
 <!-- main block -->
-<div class="w3-center w3-display-container w3-animate-opacity centered block" style="white-space:nowrap;">
+<div id="main" class="w3-center w3-display-container w3-animate-opacity centered block" style="white-space:nowrap;">
   <div class="w3-content w3-container w3-padding-64 w3" id="form">
     <h3 id="title" class="w3-center">Question 0</h3>
       <p id="content_text" class="w3-center">Question disclosure text</p>
