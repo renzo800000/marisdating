@@ -158,49 +158,13 @@ input[type=password]:focus {
           window.location.href = "http://marisdating.tk/login";  
       }
       
-      var user = document.getElementById("username");
+      var title = document.getElementById("title");
       var content = document.getElementById("content_text");
-      
-      user.innerHTML = "Hi " + username + "!";
       
       DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
         const formdone = snapshot.val();
-        if (!formdone){
-          fade(content);
-          setTimeout(function(){
-            content.innerHTML = "You should fill out our matching form below to start finding matches.";
-            unfade(content);
-            setTimeout(function(){
-              var body = document.getElementsByTagName('body')[0];
-                
-              /*
-              var newblock = document.createElement("div");
-              newblock.setAttribute("class", "w3-center w3-content w3-display-container w3-animate-opacity block");
-              newblock.setAttribute("style", "white-space:nowrap;");
-                
-              var text = document.createElement("h3");
-              text.innerHTML = "test";
-              text.setAttribute("class", "w3-center");
-              */
-                
-              var button = document.createElement("button");
-              button.innerHTML = "Matching form";
-              button.setAttribute("onclick", "goForm()");
-              button.setAttribute("class", "w3-animate-opacity w3-button w3-center w3-black");
-              button.setAttribute("type", "button");
-                
-              
-                
-              var container = document.createElement("div");
-              container.setAttribute("class", "w3-content w3-container w3-padding-64 w3 w3-opacity-min w3-center");
-              container.appendChild(button);
-                               
-              body.appendChild(container);
-                
-            },700);
-          }, 700);
-        }else{
-          loadMatches();
+        if (formdone){
+          window.location.href = "http://marisdating.tk/me"; 
         }
       });
   }
@@ -297,10 +261,10 @@ function unfade(element) {
 <!-- main block -->
 <div class="w3-center w3-display-container w3-animate-opacity centered block" style="white-space:nowrap;">
   <div class="w3-content w3-container w3-padding-64 w3" id="form">
-    <h3 id="username" class="w3-center">Question title</h3>
+    <h3 id="title" class="w3-center">Question title</h3>
       <p id="content_text" class="w3-center">Question disclosure text</p>
       <form>
-        <input type="text" id="question" name="question" value="" placeholder="">
+        <input type="text" id="text_field" name="question" value="" placeholder="">
       </form>
   </div>
 </div>
