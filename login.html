@@ -244,7 +244,7 @@ input[type=password]:focus {
 <div class="w3-center w3-display-container w3-animate-opacity centered block" style="white-space:nowrap;">
   <div class="w3-content w3-container w3-padding-64 w3" id="form">
     <h3 class="w3-center">Log In</h3>
-    <form>
+    <form action="javascript:signIn()">
       <div class="formGroup">
         <label for="uname">Username</label>
         <input type="text" id="uname" name="uname" value="" placeholder="">
@@ -257,7 +257,7 @@ input[type=password]:focus {
       <div class="form">
         <button type="submit" onclick="signIn()" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">Sign in</button>
         <div width="10" class="inline"/>
-        <button type="submit" onclick="signUp()" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">Make a new account</button>            
+        <button onclick="signUp()" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">Make a new account</button>            
       </div>
      </div>
   </div>
