@@ -1,0 +1,309 @@
+<!--
+Maris Dating english matching form
+Renzo Ligthart en Kamiel lagerwerf
+-->
+
+<!DOCTYPE html>
+<html>
+<title>Maris Dating</title>
+<link rel="shortcut icon" type="image/x-icon" href="logo.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- import styles and fonts. styles.css extracted from w3schools, fonts.css from google -->
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+    
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('mountains.jpg');    
+}
+    
+.block
+{
+    background: rgba(255, 255, 255, .8);
+    max-width:980px;
+    width:60%;
+}
+   
+/* Create a Parallax Effect (a parallax effect is an effect where the background stays stationary while the foreground scrolls) */
+.img{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+    
+.inline{
+  display:inline;    
+}
+    
+.inline-padding-10{
+  display:inline;
+  width:10%;
+}
+    
+.form-label{
+  text-align: left;
+  width:20%
+}
+/* Backround image */
+.img{
+    background-image: url('mountains.jpg');
+    min-height: 100%;
+}
+    
+.padding-10{
+    height:10%;    
+}
+.padding-70{
+    height:70%;    
+}
+.padding-40{
+    height:40%;    
+}
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+    
+input[type=text] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+.invalid{ border: 3px solid #F00;}
+    
+input[type=password] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+input[type=password]:focus {
+    border: 3px solid #555;
+}
+/* Turn off parallax effect for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .img{
+        background-attachment: scroll;
+    }
+    .block{
+        background: rgb(255, 255, 255);
+        width:100%;
+    }
+}
+    
+::-webkit-scrollbar
+{
+    width:0px;
+}
+</style>
+    
+<body onload="load()">
+
+<!-- init firebase database connection -->
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCSZAyo5TciB4oVCb39E5kDBjN7dewTpsQ",
+    authDomain: "maris-dating.firebaseapp.com",
+    databaseURL: "https://maris-dating.firebaseio.com",
+    projectId: "maris-dating",
+    storageBucket: "",
+    messagingSenderId: "736337662680"
+  };
+  firebase.initializeApp(config);
+    </script>
+    
+<script>
+  function load(){
+      
+      var DB = firebase.database();
+  
+      cookieAlert();
+      
+      var username = getCookie("username");
+      
+      if(!username || username === ""){
+          window.location.href = "http://marisdating.tk/login";  
+      }
+      
+      var user = document.getElementById("username");
+      var content = document.getElementById("content_text");
+      
+      user.innerHTML = "Hi " + username + "!";
+      
+      DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
+        const formdone = snapshot.val();
+        if (!formdone){
+          fade(content);
+          setTimeout(function(){
+            content.innerHTML = "You should fill out our matching form below to start finding matches.";
+            unfade(content);
+            setTimeout(function(){
+              var body = document.getElementsByTagName('body')[0];
+                
+              /*
+              var newblock = document.createElement("div");
+              newblock.setAttribute("class", "w3-center w3-content w3-display-container w3-animate-opacity block");
+              newblock.setAttribute("style", "white-space:nowrap;");
+                
+              var text = document.createElement("h3");
+              text.innerHTML = "test";
+              text.setAttribute("class", "w3-center");
+              */
+                
+              var button = document.createElement("button");
+              button.innerHTML = "Matching form";
+              button.setAttribute("onclick", "goForm()");
+              button.setAttribute("class", "w3-animate-opacity w3-button w3-center w3-black");
+              button.setAttribute("type", "button");
+                
+              
+                
+              var container = document.createElement("div");
+              container.setAttribute("class", "w3-content w3-container w3-padding-64 w3 w3-opacity-min w3-center");
+              container.appendChild(button);
+                               
+              body.appendChild(container);
+                
+            },700);
+          }, 700);
+        }else{
+          loadMatches();
+        }
+      });
+  }
+    
+  function goForm(){
+    window.location.href = "http://marisdating.tk/form";
+  }
+    
+  function loadMatches(){
+      var content = document.getElementById("content_text");
+      content.innerHTML = "We are loading your matches... (not really)";
+  }
+  
+  function sha1(msg)
+{
+  function rotl(n,s) { return n<<s|n>>>32-s; };
+  function tohex(i) { for(var h="", s=28;;s-=4) { h+=(i>>>s&0xf).toString(16); if(!s) return h; } };
+  var H0=0x67452301, H1=0xEFCDAB89, H2=0x98BADCFE, H3=0x10325476, H4=0xC3D2E1F0, M=0x0ffffffff; 
+  var i, t, W=new Array(80), ml=msg.length, wa=new Array();
+  msg += String.fromCharCode(0x80);
+  while(msg.length%4) msg+=String.fromCharCode(0);
+  for(i=0;i<msg.length;i+=4) wa.push(msg.charCodeAt(i)<<24|msg.charCodeAt(i+1)<<16|msg.charCodeAt(i+2)<<8|msg.charCodeAt(i+3));
+  while(wa.length%16!=14) wa.push(0);
+  wa.push(ml>>>29),wa.push((ml<<3)&M);
+  for( var bo=0;bo<wa.length;bo+=16 ) {
+    for(i=0;i<16;i++) W[i]=wa[bo+i];
+    for(i=16;i<=79;i++) W[i]=rotl(W[i-3]^W[i-8]^W[i-14]^W[i-16],1);
+    var A=H0, B=H1, C=H2, D=H3, E=H4;
+    for(i=0 ;i<=19;i++) t=(rotl(A,5)+(B&C|~B&D)+E+W[i]+0x5A827999)&M, E=D, D=C, C=rotl(B,30), B=A, A=t;
+    for(i=20;i<=39;i++) t=(rotl(A,5)+(B^C^D)+E+W[i]+0x6ED9EBA1)&M, E=D, D=C, C=rotl(B,30), B=A, A=t;
+    for(i=40;i<=59;i++) t=(rotl(A,5)+(B&C|B&D|C&D)+E+W[i]+0x8F1BBCDC)&M, E=D, D=C, C=rotl(B,30), B=A, A=t;
+    for(i=60;i<=79;i++) t=(rotl(A,5)+(B^C^D)+E+W[i]+0xCA62C1D6)&M, E=D, D=C, C=rotl(B,30), B=A, A=t;
+    H0=H0+A&M;H1=H1+B&M;H2=H2+C&M;H3=H3+D&M;H4=H4+E&M;
+  }
+  return tohex(H0)+tohex(H1)+tohex(H2)+tohex(H3)+tohex(H4);
+}
+  function cookieAlert(){
+    if(!(getCookie("cookies") === "yes")){
+      if(confirm("By using this site, you consent with the usage of cookies to save user data. (not a joke)")){
+        setCookie("cookies", "yes", 9999);
+      }
+    }
+  }
+    
+  function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0){
+            clearInterval(timer);
+            op=0;
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= 0.1;
+    }, 50);
+}
+function unfade(element) {
+    var op = 0;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += 0.1;
+    }, 50);
+}
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+  }
+</script>
+    
+<div class="padding-40"></div>
+
+<!-- main block -->
+<div class="w3-center w3-display-container w3-animate-opacity centered block" style="white-space:nowrap;">
+  <div class="w3-content w3-container w3-padding-64 w3" id="form">
+    <h3 id="username" class="w3-center">Question title</h3>
+      <p id="content_text" class="w3-center">Question disclosure text</p>
+      <form>
+        <input type="text" id="question" name="question" value="" placeholder="">
+      </form>
+  </div>
+</div>
+
+</body>
+</html>
