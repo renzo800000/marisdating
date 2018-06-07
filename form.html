@@ -172,14 +172,20 @@ input[type=password]:focus {
   }
     
   function next(){
-    var question = getParameterByName("question");
-    var newQuestion = Number(question)+1;
-    window.location.href = "http://marisdating.tk/form?question=" + newQuestion;    
+    window.location.href = "http://marisdating.tk/form?question=" + (currentQuestion() + 1);    
   }
     
-  function loadMatches(){
-      var content = document.getElementById("content_text");
-      content.innerHTML = "We are loading your matches... (not really)";
+  function currentQuestion(){
+    val v = getParameterByName("question");
+    if(isNumber(v)){
+      return Number(v);    
+    }else{
+      return 1;    
+    }
+  }
+    
+  function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n) && /^\d+$/.test(n);
   }
     
   function getParameterByName(name){
