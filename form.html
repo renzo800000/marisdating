@@ -161,6 +161,8 @@ input[type=password]:focus {
       var title = document.getElementById("title");
       var content = document.getElementById("content_text");
       
+      title.innerHTML = "Question " + getParameterByName("question");
+      
       DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
         const formdone = snapshot.val();
         if (formdone){
@@ -169,13 +171,20 @@ input[type=password]:focus {
       });
   }
     
-  function goForm(){
-    window.location.href = "http://marisdating.tk/form";
+  function next(){
+    var question = getParameterByName("question");
+    var newQuestion = Number(question)+1;
+    window.location.href = "http://marisdating.tk/form?question=" + newQuestion;    
   }
     
   function loadMatches(){
       var content = document.getElementById("content_text");
       content.innerHTML = "We are loading your matches... (not really)";
+  }
+    
+  function getParameterByName(name){
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   }
   
   function sha1(msg)
@@ -255,8 +264,6 @@ function unfade(element) {
     return "";
   }
 </script>
-    
-<div class="padding-40"></div>
 
 <!-- main block -->
 <div class="w3-center w3-display-container w3-animate-opacity centered block" style="white-space:nowrap;">
@@ -264,8 +271,8 @@ function unfade(element) {
     <h3 id="title" class="w3-center">Question title</h3>
       <p id="content_text" class="w3-center">Question disclosure text</p>
       <form>
-        <input type="text" id="text_field" name="question" value="" placeholder="">
-        <button type="submit" onclick="signIn()" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">OK</button>
+        <div><input type="text" id="text_field" name="question" value="" placeholder=""></div>
+        <div><button type="submit" onclick="next()" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">OK</button></div>
       </form>
   </div>
 </div>
