@@ -172,11 +172,11 @@ input[type=password]:focus {
   }
     
   function next(){
-    window.location.href = "http://marisdating.tk/form?question=" + (currentQuestion() + 1);    
+    window.location.href = ("http://marisdating.tk/form?question=" + (currentQuestion() + 1));    
   }
     
   function currentQuestion(){
-    val v = getParameterByName("question");
+    var n = getParameterByName("question");
     if(isNumber(v)){
       return Number(v);    
     }else{
