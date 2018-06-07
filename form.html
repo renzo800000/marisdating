@@ -238,8 +238,8 @@ input[type=password]:focus {
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= 0.1;
-    }, 50);
+        op -= 0.01;
+    }, 500);
 }
 function unfade(element) {
     var op = 0;  // initial opacity
@@ -250,8 +250,8 @@ function unfade(element) {
         }
         element.style.opacity = op;
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += 0.1;
-    }, 50);
+        op += 0.01;
+    }, 500);
 }
   function setCookie(cname, cvalue, exdays) {
     var d = new Date();
