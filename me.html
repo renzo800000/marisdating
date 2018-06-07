@@ -116,6 +116,11 @@ input[type=password]:focus {
         width:100%;
     }
 }
+    
+::-webkit-scrollbar
+{
+    width:0px;
+}
 </style>
     
 <body onload="load()">
@@ -181,10 +186,9 @@ input[type=password]:focus {
               body.appendChild(newblock);
                 
               var pad = document.createElement("div");
-              container.setAttribute("class", "padding-70");
+              pad.setAttribute("class", "padding-70");
               body.appendChild(pad);
                 
-              
             },700);
           }, 700);
         }else{
