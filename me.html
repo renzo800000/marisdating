@@ -172,8 +172,9 @@ input[type=password]:focus {
             content.innerHTML = "You should fill out our matching form below to start finding matches.";
             unfade(content);
             setTimeout(function(){
-                
               var body = document.getElementsByTagName('body')[0];
+                
+              /*
               var newblock = document.createElement("div");
               newblock.setAttribute("class", "w3-center w3-content w3-display-container w3-animate-opacity block");
               newblock.setAttribute("style", "white-space:nowrap;");
@@ -184,13 +185,19 @@ input[type=password]:focus {
               var text = document.createElement("h3");
               text.innerHTML = "test";
               text.setAttribute("class", "w3-center");
-              container.appendChild(text);
-              newblock.appendChild(container);
-              body.appendChild(newblock);
+              */
+                
+              var button = document.createElement("button");
+              button.innerHTML = "Matching form";
+              button.setAttribute("onclick", "goForm()");
+              button.setAttribute("class", "w3-animate-opacity w3-opacity-min w3-button w3-center w3-black");
+              button.setAttribute("type", "button");
                 
               var pad = document.createElement("div");
-              pad.setAttribute("class", "padding-70");
+              pad.setAttribute("class", "padding-10");
               body.appendChild(pad);
+                
+              body.appendChild(button);
                 
             },700);
           }, 700);
@@ -198,6 +205,10 @@ input[type=password]:focus {
           loadMatches();
         }
       });
+  }
+    
+  function goForm(){
+    window.location.href = "http://marisdating.tk/form";
   }
     
   function loadMatches(){
