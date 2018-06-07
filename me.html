@@ -43,11 +43,9 @@ body, html {
 }
     
 .centered {
-  position: fixed;
-  top: 50%;
   left: 50%;
   /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 }
     
 .inline{
@@ -190,7 +188,7 @@ input[type=password]:focus {
               var button = document.createElement("button");
               button.innerHTML = "Matching form";
               button.setAttribute("onclick", "goForm()");
-              button.setAttribute("class", "w3-animate-opacity w3-opacity-min w3-button w3-center w3-black");
+              button.setAttribute("class", "w3-animate-opacity w3-opacity-min w3-button w3-center w3-black centered");
               button.setAttribute("type", "button");
                 
               var pad = document.createElement("div");
