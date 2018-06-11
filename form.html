@@ -351,12 +351,12 @@ input[type=password]:focus {
   function hidePickers(hide){
     for(i = 6; i>6-hide;i--){
          var p = document.getElementById("p" + i); 
-         p.parentNode.removeChild(r);
+         p.parentNode.removeChild(p);
     }
   }
   function hideField(){
     var t = document.getElementById("text_field"); 
-    t.parentNode.removeChild(r);
+    t.parentNode.removeChild(t);
   }
     
   function isNumber(n) {
