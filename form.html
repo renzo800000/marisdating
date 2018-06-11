@@ -161,7 +161,7 @@ input[type=password]:focus {
       var title = document.getElementById("title");
       var content = document.getElementById("content_text");
       
-      title.innerHTML = "Question " + currentQuestion();
+      title.innerHTML = getTitle(currentQuestion());
       
       DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
         const formdone = snapshot.val();
@@ -178,6 +178,78 @@ input[type=password]:focus {
     },700);
     fade(mainBlock);
     
+  }
+    
+  function getTitle(q){
+    switch(q){
+      case 0:
+      return "My Gender";
+      break; 
+       
+      case 1:
+      return "My Sexuality";
+      break; 
+       
+      case 2:
+      return "Full Name";
+      break; 
+       
+      case 3:
+      return "Phone Number";
+      break;  
+       
+      case 4:
+      return "My Age";
+      break;  
+       
+      case 5:
+      return "My Hair Color";
+      break;  
+       
+      case 6:
+      return "My Eye Color";
+      break;  
+       
+      case 7:
+      return "My Length (in meters)";
+      break;  
+       
+      case 8:
+      return "My Weight (in kilograms)";
+      break;  
+       
+      case 10:
+      return "My Relation Status";
+      break;  
+             
+      case 11:
+      return "Write something about yourself";
+      break;  
+       
+      case 12:
+      return "How many kids do you want?";
+      break;  
+       
+      case 13:
+      return "What hair colors do you like?";
+      break;  
+       
+      case 14:
+      return "What age should your partner be?";
+      break;  
+       
+      case 15:
+      return "How long should your partner be?";
+      break;  
+       
+      case 16:
+      return "How much should your partner weigh?";
+      break;  
+       
+      case 17:
+      return "What kind of relation are you looking for?";
+      break;  
+    }
   }
     
   function currentQuestion(){
