@@ -422,9 +422,22 @@ function unfade(element) {
     <h3 id="title" class="w3-center">Question 0</h3>
       <form action="javascript:next()">
         <div><input type="text" id="text_field" name="question" value="" placeholder=""></div>
-        <input class="checkbox" type="radio" name="gender" value="male" checked> Male<br>
-        <input class="checkbox" type="radio" name="gender" value="female"> Female<br>
-        <input class="checkbox" type="radio" name="gender" value="other"> Other<br><br>
+        <label class="checkbox">One
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+        </label>
+        <label class="checkbox">Two
+              <input type="checkbox">
+              <span class="checkmark"></span>
+        </label>
+        <label class="checkbox">Three
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+        <label class="checkbox">Four
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
         <div><button type="submit" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">OK</button></div>
       </form>
   </div>
