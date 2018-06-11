@@ -109,13 +109,14 @@ input[type=password]:focus {
     border: 3px solid #555;
 }
     
-.checkbox {
-    display: block;
+.container {
+    display: inline-block;
     position: relative;
-    padding-left: 25px;
-    margin-bottom: 10px;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    margin-left: 40%;
     cursor: pointer;
-    font-size: 23px;
+    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -123,7 +124,7 @@ input[type=password]:focus {
 }
 
 /* Hide the browser's default checkbox */
-.checkbox input {
+.container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -134,19 +135,19 @@ input[type=password]:focus {
     position: absolute;
     top: 0;
     left: 0;
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     background-color: #eee;
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox:hover input ~ .checkmark {
+.container:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkbox input:checked ~ .checkmark {
-    background-color: #555;
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -157,15 +158,15 @@ input[type=password]:focus {
 }
 
 /* Show the checkmark when checked */
-.checkbox input:checked ~ .checkmark:after {
+.container input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.checkbox .checkmark:after {
-    left: 7px;
-    top: 3px;
-    width: 6px;
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
     height: 10px;
     border: solid white;
     border-width: 0 3px 3px 0;
@@ -422,9 +423,25 @@ function unfade(element) {
     <h3 id="title" class="w3-center">Question 0</h3>
       <form action="javascript:next()">
         <div><input type="text" id="text_field" name="question" value="" placeholder=""></div>
-          <input class="checkmark" type="checkbox" checked="checked"><h3>1</h3>
-            <input class="checkmark" type="checkbox"><h3>2</h3>
-            <input class="checkmark" type="checkbox"><h3>3</h3>
+        <label class="container">One
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+        </label>
+        <br>
+        <label class="container">Two
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+        <br>
+        <label class="container">Three
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
+        <br>
+        <label class="container">Four
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>
         <div><button type="submit" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">OK</button></div>
       </form>
   </div>
