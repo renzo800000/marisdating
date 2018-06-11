@@ -339,8 +339,10 @@ input[type=password]:focus {
     
   function hideRadios(hide){
     for(i = 6; i>6-hide;i--){
-         var r = document.getElementById("r" + i); 
+         var r = document.getElementById("r" + i);
+         var br = document.getElementById("r" + i + "br");
          r.parentNode.removeChild(r);
+         br.parentNode.removeChild(br);
     }
   }
     
@@ -351,7 +353,9 @@ input[type=password]:focus {
   function hidePickers(hide){
     for(i = 6; i>6-hide;i--){
          var p = document.getElementById("p" + i); 
+         var br = document.getElementById("p" + i + "br");
          p.parentNode.removeChild(p);
+         br.parentNode.removeChild(br);
     }
   }
   function hideField(){
@@ -457,72 +461,73 @@ function unfade(element) {
             <input id="p1v" type="checkbox">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="p1br">
         <label id="p2" class="container">
             <div id="p2l">Two</div>
             <input id="p2v" type="checkbox">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="p2br">
         <label id="p3" class="container">
             <div id="p3l">Three</div>
             <input id="p3v" type="checkbox">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="p3br">
         <label id="p4" class="container">
             <div id="p4l">Four</div>
             <input id="p4v" type="checkbox">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="p4br">
         <label id="p5" class="container">
             <div id="p5l">Five</div>
             <input id="p5v" type="checkbox">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="p5br">
         <label id="p6" class="container">
             <div id="p6l">Six</div>
             <input id="p6v" type="checkbox">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="p6br">
         <label id="r1" class="container">
             <div id="r1l">One</div>
             <input id="r1v" type="radio" name="p">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="r1br">
         <label id="r2" class="container">
             <div id="r2l">Two</div>
             <input id="r2v" type="radio" name="p">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="r2br">
         <label id="r3" class="container">
             <div id="r3l">Three</div>
             <input id="r3v" type="radio" name="p">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="r3br">
         <label id="r4" class="container">
             <div id="r4l">Four</div>
             <input id="r4v" type="radio" name="p">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="r4br">
         <label id="r5" class="container">
             <div id="r5l">Five</div>
             <input id="r5v" type="radio" name="p">
             <span class="checkmark"></span>
         </label>
-        <br>
+        <br id="r5br">
         <label id="r6" class="container">
             <div id="r6l">Six</div>
             <input id="r6v" type="radio" name="p">
             <span class="checkmark"></span>
         </label>
+        <br id="r6br">
         <div><button type="submit" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">OK</button></div>
       </form>
   </div>
