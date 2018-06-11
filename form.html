@@ -252,75 +252,110 @@ input[type=password]:focus {
   function getTitle(q){
     switch(q){
       case 0:
-      initRadios(["Male", "Female"])
+      initRadios(["Male", "Female"]);
       hidePickers();
       hideField();
       return "My Gender";
       break; 
        
       case 1:
+      initRadios(["Hetereosexual", "Homosexual", "Bisexual"]);
+      hidePickers();
+      hideField();
       return "My Sexuality";
       break; 
        
       case 2:
+      hideRadios();
+      hidePickers();
       return "Full Name";
       break; 
        
-      case 3:
-      return "Phone Number";
-      break;  
-       
       case 4:
+      hideRadios();
+      hidePickers();
       return "My Age";
       break;  
        
       case 5:
+      initRadios(["Black", "Brown", "Blond", "Dark Blond", "Grey", "Red / Orange"]);
+      hidePickers();
+      hideField();
       return "My Hair Color";
       break;  
        
       case 6:
+      initRadios(["Brown", "Blue", "Green", "Red", "Grey"]);
+      hidePickers();
+      hideField();
       return "My Eye Color";
       break;  
        
       case 7:
+      hideRadios();
+      hidePickers();
       return "My Length (in meters)";
       break;  
        
       case 8:
+      hideRadios();
+      hidePickers();
       return "My Weight (in kilograms)";
       break;  
        
       case 10:
+      initRadios(["Single", "Engaged", "Married", "In a relationship"]);
+      hidePickers();
+      hideField();
       return "My Relation Status";
-      break;  
-             
-      case 11:
-      return "Write something about yourself";
-      break;  
+      break;   
        
-      case 12:
+      case 11:
+      hideRadios();
+      hidePickers();
       return "How many kids do you want?";
       break;  
        
-      case 13:
+      case 12:
       return "What hair colors do you like?";
+      initPickers(["Black", "Brown", "Blond", "Dark Blond", "Grey", "Red / Orange"]);
+      hideRadios();
+      hideField();
+      break;  
+       
+      case 13:
+      return "What age should your partner be?";
+      initPickers(["schaal"]);
+      hideRadios();
+      hideField();
       break;  
        
       case 14:
-      return "What age should your partner be?";
-      break;  
-       
-      case 15:
+      initPickers(["schaal"]);
+      hideRadios();
+      hideField();
       return "How long should your partner be?";
       break;  
        
-      case 16:
+      case 15:
+      initPickers(["schaal"]);
+      hideRadios();
+      hideField();
       return "How much should your partner weigh?";
       break;  
        
-      case 17:
+      case 16:
+      initRadios(["I want to find someone to marry", "I want to start a family", "I'm looking for something casual", "Friends with benefits", "One night stand"]);
+      hidePickers();
+      hideField();
       return "What kind of relation are you looking for?";
-      break;  
+      break; 
+                         
+      case 17:
+      hideRadios();
+      hidePickers();
+      return "Write something about yourself";
+      break; 
     }
   }
     
