@@ -226,7 +226,7 @@ input[type=password]:focus {
       
       var title = document.getElementById("title");
       
-      if(currentQuestion() > 17){
+      if(currentQuestion() > 16){
         window.location.href = "http://marisdating.tk/form";  
       }
       
@@ -243,7 +243,8 @@ input[type=password]:focus {
   function next(){
     var mainBlock = document.getElementById("main");
     setTimeout(function(){
-      window.location.href = ("http://marisdating.tk/form?question=" + (currentQuestion() + 1));
+      if(currentQuestion()==16)window.location.href = "http://marisdating.tk/me";
+      else window.location.href = ("http://marisdating.tk/form?question=" + (currentQuestion() + 1));
     },700);
     fade(mainBlock);
     
@@ -270,6 +271,12 @@ input[type=password]:focus {
       hidePickers();
       return "Full Name";
       break; 
+            
+      case 3:
+      hideRadios();
+      hidePickers();
+      return "My Phone Number (optional)";
+      break;  
        
       case 4:
       hideRadios();
@@ -303,55 +310,55 @@ input[type=password]:focus {
       return "My Weight (in kilograms)";
       break;  
        
-      case 10:
+      case 9:
       initRadios(["Single", "Engaged", "Married", "In a relationship"]);
       hidePickers();
       hideField();
       return "My Relation Status";
       break;   
        
-      case 11:
+      case 10:
       hideRadios();
       hidePickers();
       return "How many kids do you want?";
       break;  
        
-      case 12:
+      case 11:
       return "What hair colors do you like?";
       initPickers(["Black", "Brown", "Blond", "Dark Blond", "Grey", "Red / Orange"]);
       hideRadios();
       hideField();
       break;  
        
-      case 13:
+      case 12:
       return "What age should your partner be?";
       initPickers(["schaal"]);
       hideRadios();
       hideField();
       break;  
        
-      case 14:
+      case 13:
       initPickers(["schaal"]);
       hideRadios();
       hideField();
       return "How long should your partner be?";
       break;  
        
-      case 15:
+      case 14:
       initPickers(["schaal"]);
       hideRadios();
       hideField();
       return "How much should your partner weigh?";
       break;  
        
-      case 16:
+      case 15:
       initRadios(["I want to find someone to marry", "I want to start a family", "I'm looking for something casual", "Friends with benefits", "One night stand"]);
       hidePickers();
       hideField();
       return "What kind of relation are you looking for?";
       break; 
                          
-      case 17:
+      case 16:
       hideRadios();
       hidePickers();
       return "Write something about yourself";
