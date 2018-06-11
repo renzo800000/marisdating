@@ -161,6 +161,10 @@ input[type=password]:focus {
       var title = document.getElementById("title");
       var content = document.getElementById("content_text");
       
+      if(currentQuestion() > 17){
+        window.location.href = "http://marisdating.tk/form";  
+      }
+      
       title.innerHTML = getTitle(currentQuestion());
       
       DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
@@ -257,7 +261,7 @@ input[type=password]:focus {
     if(isNumber(v)){
       return Number(v);    
     }else{
-      return 1;    
+      return 0;    
     }
   }
     
