@@ -252,8 +252,8 @@ input[type=password]:focus {
   function getTitle(q){
     switch(q){
       case 0:
-      hideRadios(4);
-      hidePickers(6);
+      initRadios(["Male", "Female"])
+      hidePickers();
       hideField();
       return "My Gender";
       break; 
@@ -334,28 +334,38 @@ input[type=password]:focus {
   }
     
   function hideRadios(){
-    hideRadios(6);    
+    hideRadios([]);    
   }
     
-  function hideRadios(hide){
-    for(i = 6; i>6-hide;i--){
-         var r = document.getElementById("r" + i);
+  function initRadios(names){
+    for(i = 1; i<7;i++){
+        if(i>names.length){
+         var r = document.getElementById("r" + i); 
          var br = document.getElementById("r" + i + "br");
          r.parentNode.removeChild(r);
          br.parentNode.removeChild(br);
+        }else{
+         var l = document.getElementById("r" + i + "l");
+         l.innerHTML = names[i-1];
+        }
     }
   }
     
   function hidePickers(){
-    hidePickers(6);    
+    initPickers([]);    
   }
     
-  function hidePickers(hide){
-    for(i = 6; i>6-hide;i--){
+  function initPickers(names){
+    for(i = 1; i<7;i++){
+        if(i>names.length){
          var p = document.getElementById("p" + i); 
          var br = document.getElementById("p" + i + "br");
          p.parentNode.removeChild(p);
          br.parentNode.removeChild(br);
+        }else{
+         var l = document.getElementById("p" + i + "l");
+         l.innerHTML = names[i-1];
+        }
     }
   }
   function hideField(){
