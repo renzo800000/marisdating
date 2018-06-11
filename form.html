@@ -159,7 +159,6 @@ input[type=password]:focus {
       }
       
       var title = document.getElementById("title");
-      var content = document.getElementById("content_text");
       
       if(currentQuestion() > 17){
         window.location.href = "http://marisdating.tk/form";  
@@ -355,7 +354,6 @@ function unfade(element) {
 <div id="main" class="w3-center w3-display-container w3-animate-opacity centered block" style="white-space:nowrap;">
   <div class="w3-content w3-container w3-padding-64 w3" id="form">
     <h3 id="title" class="w3-center">Question 0</h3>
-      <p id="content_text" class="w3-center">Question disclosure text</p>
       <form action="javascript:next()">
         <div><input type="text" id="text_field" name="question" value="" placeholder=""></div>
         <div><button type="submit" class="inline w3-opacity-min w3-button w3-center w3-black" type="button">OK</button></div>
