@@ -252,6 +252,9 @@ input[type=password]:focus {
   function getTitle(q){
     switch(q){
       case 0:
+      hideRadios(2);
+      hidePickers();
+      hideField();
       return "My Gender";
       break; 
        
@@ -330,6 +333,32 @@ input[type=password]:focus {
     }
   }
     
+  function hideRadios(){
+    hideRadios(6);    
+  }
+    
+  function hideRadios(hide){
+    for(int i = 6; i>6-hide;i--){
+         var r = document.getElementById("r" + i); 
+         r.parentNode.removeChild(r);
+    }
+  }
+    
+  function hidePickers(){
+    hidePickers(6);    
+  }
+    
+  function hidePickers(hide){
+    for(int i = 6; i>6-hide;i--){
+         var p = document.getElementById("p" + i); 
+         p.parentNode.removeChild(r);
+    }
+  }
+  function hideField(){
+    var t = document.getElementById("text_field"); 
+    t.parentNode.removeChild(r);
+  }
+    
   function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n) && /^\d+$/.test(n);
   }
@@ -369,6 +398,8 @@ input[type=password]:focus {
       }
     }
   }
+    
+  function 
     
   function fade(element) {
     var op = 1;  // initial opacity
@@ -421,7 +452,7 @@ function unfade(element) {
   <div class="w3-content w3-container w3-padding-64 w3" id="form">
     <h3 id="title" class="w3-center">Question 0</h3>
       <form action="javascript:next()">
-        <div><input type="text" id="text_field" name="question" value="" placeholder=""></div>
+        <div><input type="text" id="text_field" value="" placeholder=""></div>
         <label id="p1" class="container">
             <div id="p1l">One</div>
             <input id="p1v" type="checkbox">
@@ -457,8 +488,8 @@ function unfade(element) {
             <input id="p6v" type="checkbox">
             <span class="checkmark"></span>
         </label>
-          
-                <label id="r1" class="container">
+        <br>
+        <label id="r1" class="container">
             <div id="r1l">One</div>
             <input id="r1v" type="radio" name="p">
             <span class="checkmark"></span>
