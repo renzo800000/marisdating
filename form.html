@@ -346,7 +346,7 @@ input[type=password]:focus {
       break;  
        
       case 12:
-      initSlider(18, 28, 1, 10, 100);
+      initSlider(18, 28, 1, 10, 100, 0);
       hidePickers();
       hideRadios();
       hideField();
@@ -354,7 +354,7 @@ input[type=password]:focus {
       break;  
        
       case 13:
-      initSlider(1.4, 1.9, 0.1, 0.5, 2);
+      initSlider(1.4, 1.9, 0.1, 0.5, 2, 1);
       hidePickers();
       hideRadios();
       hideField();
@@ -362,7 +362,7 @@ input[type=password]:focus {
       break;  
        
       case 14:
-      initSlider(60, 85, 1, 30, 140);
+      initSlider(60, 85, 1, 30, 140, 0);
       hidePickers();
       hideRadios();
       hideField();
@@ -418,10 +418,10 @@ input[type=password]:focus {
   }
   
   function hideSlider(){
-    initSlider(0,0,0,0,0);    
+    initSlider(0,0,0,0,0,0);    
   }
     
-  function initSlider(start, stop, step, min, max){
+  function initSlider(start, stop, step, min, max, dec){
     if(start == 0 && stop == 0 && step == 0 && min == 0 && max == 0){
       var c = document.getElementById("c");
       var cl = document.getElementById("cl");
@@ -445,7 +445,7 @@ input[type=password]:focus {
 
       // When the slider value changes, update the input and span
       slider.noUiSlider.on('update', function( values, handle ) {       
-      txt.innerHTML = Math.round(values[0]) + "  -> " + Math.round(values[1]);
+      txt.innerHTML = values[0].toFixed(dec) + "  -> " + values[1].toFixed(dec);
     });
     }
   }
