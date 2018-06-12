@@ -420,10 +420,18 @@ input[type=password]:focus {
          step: step,
          behaviour: 'tap',
          connect: true,
-         range: 
-         'min':  min,
-         'max':  max
-       });    
+         range:{
+           'min':  min,
+           'max':  max
+         }
+       });
+        
+       var txt = document.getElementById('cl');
+
+      // When the slider value changes, update the input and span
+      slider.noUiSlider.on('update', function( values, handle ) {       
+      txt.innerHTML = Math.round(values[0]) + "  -> " + Math.round(values[1]);
+    });
     }
   }
     
