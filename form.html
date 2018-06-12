@@ -264,6 +264,7 @@ input[type=password]:focus {
       break; 
        
       case 1:
+      hideSlider();
       initRadios(["Hetereosexual", "Homosexual", "Bisexual"]);
       hidePickers();
       hideField();
@@ -271,24 +272,28 @@ input[type=password]:focus {
       break; 
        
       case 2:
+      hideSlider();
       hideRadios();
       hidePickers();
       return "Full Name";
       break; 
             
       case 3:
+      hideSlider();
       hideRadios();
       hidePickers();
       return "My Phone Number (optional)";
       break;  
        
       case 4:
+      hideSlider();
       hideRadios();
       hidePickers();
       return "My Age";
       break;  
        
       case 5:
+      hideSlider();
       initRadios(["Black", "Brown", "Blond", "Dark Blond", "Grey", "Red / Orange"]);
       hidePickers();
       hideField();
@@ -296,6 +301,7 @@ input[type=password]:focus {
       break;  
        
       case 6:
+      hideSlider();
       initRadios(["Brown", "Blue", "Green", "Red", "Grey"]);
       hidePickers();
       hideField();
@@ -303,18 +309,21 @@ input[type=password]:focus {
       break;  
        
       case 7:
+      hideSlider();
       hideRadios();
       hidePickers();
       return "My Length (in meters)";
       break;  
        
       case 8:
+      hideSlider();
       hideRadios();
       hidePickers();
       return "My Weight (in kilograms)";
       break;  
        
       case 9:
+      hideSlider();
       initRadios(["Single", "Engaged", "Married", "In a relationship"]);
       hidePickers();
       hideField();
@@ -322,12 +331,14 @@ input[type=password]:focus {
       break;   
        
       case 10:
+      hideSlider();
       hideRadios();
       hidePickers();
       return "How many kids do you want?";
       break;  
        
       case 11:
+      hideSlider();
       initPickers(["Black", "Brown", "Blond", "Dark Blond", "Grey", "Red / Orange"]);
       hideRadios();
       hideField();
@@ -336,6 +347,7 @@ input[type=password]:focus {
        
       case 12:
       initSlider(18, 28, 1, 10, 100);
+      hidePickers();
       hideRadios();
       hideField();
       return "What age should your partner be?";
@@ -351,12 +363,14 @@ input[type=password]:focus {
        
       case 14:
       initSlider(60, 85, 1, 30, 140);
+      hidePickers();
       hideRadios();
       hideField();
       return "How much should your partner weigh? (kg)";
       break;  
        
       case 15:
+      hideSlider();
       initRadios(["I want to marry someone", "I want to start a family", "Something casual", "Friends with benefits", "One night stand"]);
       hidePickers();
       hideField();
@@ -364,6 +378,7 @@ input[type=password]:focus {
       break; 
                          
       case 16:
+      hideSlider();
       hideRadios();
       hidePickers();
       return "Your life motto";
