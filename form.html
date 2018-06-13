@@ -521,15 +521,21 @@ input[type=password]:focus {
          }
        });
        }
+    }
         
        var txt = document.getElementById('cl');
-
-      // When the slider value changes, update the input and span
-      slider.noUiSlider.on('update', function( values, handle ) {
+        
+        
       if(start == stop){
-        txt.innerHTML = parseFloat(values[0]).toFixed(dec);
+        // When the slider value changes, update the input and span
+        slider.noUiSlider.on('update', function( values, handle ) {
+          txt.innerHTML = parseFloat(values[0]).toFixed(dec);
+        }
       }else{
-        txt.innerHTML = parseFloat(values[0]).toFixed(dec) + " → " + parseFloat(values[1]).toFixed(dec);
+        // When the slider value changes, update the input and span
+        slider.noUiSlider.on('update', function( values, handle ) {
+          txt.innerHTML = parseFloat(values[0]).toFixed(dec) + " → " + parseFloat(values[1]).toFixed(dec);
+        }                   
       }
     });
     }
