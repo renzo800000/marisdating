@@ -254,9 +254,72 @@ input[type=password]:focus {
     
   }
     
+  function saveData(q){
+    switch(q){
+      case 0://my gender: male / female
+      break; 
+       
+      case 1://my sexuality: hetereo / homo/ bi
+      
+      break; 
+       
+      case 2://full name
+      break; 
+            
+      case 3://phone number
+      break;  
+       
+      case 4://age
+      break;  
+       
+      case 5://my hair color: black / brown / blond / dark blond / grey / Red/orange
+
+      break;  
+       
+      case 6://eye color: blown / blue / green / red / grey
+
+      break;  
+       
+      case 7://length in meters
+      break;  
+       
+      case 8://weight in kg
+      break;  
+       
+      case 9://relation status: single / engaged / married / in a relationship
+
+      break;   
+       
+      case 10://how many kids do you want
+      break;  
+       
+      case 11://hair color partner: black / brown / blond / dark blond / grey / red/orange
+
+      break;  
+       
+      case 12://age partner, slider
+      break;  
+       
+      case 13://length partner, slider
+      break;  
+       
+      case 14://weight partner, slider
+      break;  
+       
+      case 15://relation type: marry someone / start a family / something casual / friends with benefits / one night stand
+
+      break; 
+                         
+      case 16://your life motto
+
+      break; 
+    }
+  }
+    
   function getTitle(q){
     switch(q){
       case 0:
+      hideSlider();
       initRadios(["Male", "Female"]);
       hidePickers();
       hideField();
@@ -279,16 +342,18 @@ input[type=password]:focus {
       break; 
             
       case 3:
-      hideSlider();
-      hideRadios();
+      initSlider(0612345678, 0612345678, 1, 0, 99999999, 0);
       hidePickers();
+      hideRadios();
+      hideField();
       return "My Phone Number (optional)";
       break;  
        
       case 4:
-      hideSlider();
-      hideRadios();
+      initSlider(16, 16, 1, 10, 100, 0);
       hidePickers();
+      hideRadios();
+      hideField();
       return "My Age";
       break;  
        
@@ -309,16 +374,18 @@ input[type=password]:focus {
       break;  
        
       case 7:
-      hideSlider();
-      hideRadios();
+      initSlider(1.7, 1.7, 0.1, 0.5, 2, 1);
       hidePickers();
+      hideRadios();
+      hideField();
       return "My Length (in meters)";
       break;  
        
       case 8:
-      hideSlider();
-      hideRadios();
+      initSlider(75, 75, 1, 30, 140, 0);
       hidePickers();
+      hideRadios();
+      hideField();
       return "My Weight (in kilograms)";
       break;  
        
@@ -331,9 +398,10 @@ input[type=password]:focus {
       break;   
        
       case 10:
-      hideSlider();
-      hideRadios();
+      initSlider(2, 2, 1, 0, 10, 0);
       hidePickers();
+      hideRadios();
+      hideField();
       return "How many kids do you want?";
       break;  
        
@@ -429,7 +497,19 @@ input[type=password]:focus {
       cl.parentNode.removeChild(cl);
     }else{
       var slider = document.getElementById('c');
-
+        
+       if(stop == start){
+       noUiSlider.create(slider, {
+         start: [ start],
+         step: step,
+         behaviour: 'tap',
+         connect: true,
+         range:{
+           'min':  min,
+           'max':  max
+         }
+       });
+       }else{
        noUiSlider.create(slider, {
          start: [ start, stop ],
          step: step,
@@ -440,12 +520,17 @@ input[type=password]:focus {
            'max':  max
          }
        });
+       }
         
        var txt = document.getElementById('cl');
 
       // When the slider value changes, update the input and span
-      slider.noUiSlider.on('update', function( values, handle ) {       
-      txt.innerHTML = parseFloat(values[0]).toFixed(dec) + " → " + parseFloat(values[1]).toFixed(dec);
+      slider.noUiSlider.on('update', function( values, handle ) {
+      if(start == stop){
+        txt.innerHTML = parseFloat(values[0]).toFixed(dec);
+      }else{
+        txt.innerHTML = parseFloat(values[0]).toFixed(dec) + " → " + parseFloat(values[1]).toFixed(dec);
+      }
     });
     }
   }
