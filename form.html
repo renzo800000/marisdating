@@ -614,6 +614,26 @@ input[type=password]:focus {
     }
     return false;
   }
+    
+  function savePickerData("key, vals"){
+    var val = "";
+    for(var i = 0; i < vals.length; i++){
+      var r = document.getElementById("p" + (i+1) + "v");
+      if(r.checked){
+        if(val.length>0){
+          val += "-";
+        }
+        val += vals[i];
+      }
+    }
+    if(val.length>0){
+      var DB = firebase.database();
+      var username = getCookie("username");
+      DB.ref("users/" + username + "/data/" + key).set({v: val});
+      return true;  
+    }
+    return false;  
+  }
   
   function sha1(msg)
 {
