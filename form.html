@@ -269,6 +269,11 @@ input[type=password]:focus {
   function saveData(q){
     switch(q){
       case 0://my gender: male / female
+      if(!saveRadioData("gender", {"M", "F"})){
+        alert("This is a required question: please pick one of the two options.");
+        return false;
+      }
+      return true;
       break; 
        
       case 1://my sexuality: hetereo / homo/ bi
@@ -578,6 +583,19 @@ input[type=password]:focus {
   function getParameterByName(name){
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  }
+    
+  function saveRadioData(key, vals){
+    for(var i = 0 i < vals.length; i++){
+      var r = document.getElementById("r" + (i+1) + "v");
+      if(r.checked){
+        var DB = firebase.database();
+        var username = getCookie("username");
+        DB.ref("users/" + username + "/data/" + key).set({v: vals[i]});
+        return true;
+      }
+    }
+    return false;
   }
   
   function sha1(msg)
