@@ -1,0 +1,76 @@
+* -> variable not used in matching algorithm
+
+email*
+email adress
+
+password*
+hashed password
+
+gender
+M -> male
+F -> female
+
+sexuality
+H -> hetero
+G -> homosexual
+B -> bisexual
+
+name*
+full name
+
+phone*
+phone number(may be empty) 
+
+age
+age
+
+hair - hair color
+BLACK
+BROWN
+BLOND
+DARK_BLOND
+GREY
+RED
+
+eye - eye color
+BROWN
+BLUE
+GREEN
+RED
+GREY
+
+length
+length in meters
+
+weigth
+weigth in kg
+
+kids*
+number of kids user wants to have
+
+hair_partner
+BLACK
+BROWN
+BLOND
+DARK_BLOND
+GREY
+RED
+
+age_partner
+range e.g. "18-24"
+
+length_partner
+range e.g. "1.20-1.45"
+
+weigth_partner
+range e.g. "50-100"
+
+relation - wanted relation type
+MS -> marry someone
+SAF -> start a family
+SC -> something casual
+FWB -> friends with benefits
+ONS -> one night stand
+
+motto* - user's life motto
+text e.g. "we're gonna die anyway"
