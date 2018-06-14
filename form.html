@@ -97,7 +97,20 @@ input[type=text] {
 input[type=text]:focus {
     border: 3px solid #555;
 }
-.invalid{ border: 3px solid #F00;}
+
+input[type=number] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+input[type=number]:focus {
+    border: 3px solid #555;
+}
     
 input[type=password] {
     width: 40%;
@@ -251,7 +264,6 @@ input[type=password]:focus {
       else window.location.href = ("http://marisdating.tk/form?question=" + (currentQuestion() + 1));
     },700);
     fade(mainBlock);
-    
   }
     
   function saveData(q){
@@ -345,6 +357,10 @@ input[type=password]:focus {
       hideSlider();
       hideRadios();
       hidePickers();
+            
+      var field = document.getElementById("text_field");
+      field.setAttribute("type", "number");
+            
       return "My Phone Number (optional)";
       break;  
        
