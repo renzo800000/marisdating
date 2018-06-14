@@ -258,6 +258,7 @@ input[type=password]:focus {
   }
     
   function next(){
+    if(!saveData(currentQuestion())){return;}
     var mainBlock = document.getElementById("main");
     setTimeout(function(){
       if(currentQuestion()==16)window.location.href = "http://marisdating.tk/me";
