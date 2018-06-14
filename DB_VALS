@@ -49,6 +49,7 @@ kids*
 number of kids user wants to have
 
 hair_partner
+-- saved as list e.g. "BLACK-BLOND-DARK_BLOND" --
 BLACK
 BROWN
 BLOND
