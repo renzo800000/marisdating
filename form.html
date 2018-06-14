@@ -269,7 +269,7 @@ input[type=password]:focus {
   function saveData(q){
     switch(q){
       case 0://my gender: male / female
-      if(!saveRadioData("gender", {"M", "F"})){
+      if(!saveRadioData("gender", ["M", "F"])){
         alert("This is a required question: please pick one of the two options.");
         return false;
       }
