@@ -271,14 +271,18 @@ input[type=password]:focus {
     switch(q){
       case 0://my gender: male / female
       if(!saveRadioData("gender", ["M", "F"])){
-        alert("This is a required question: please pick one of the two options.");
+        alert("This is a required question:\n please pick one of the options.");
         return false;
       }
       return true;
       break; 
        
       case 1://my sexuality: hetereo / homo/ bi
-      
+      if(!saveRadioData("sexuality", ["H", "G", "B"])){
+        alert("This is a required question:\n please pick one of the options.");
+        return false;
+      }
+      return true;
       break; 
        
       case 2://full name
@@ -291,11 +295,19 @@ input[type=password]:focus {
       break;  
        
       case 5://my hair color: black / brown / blond / dark blond / grey / Red/orange
-
+      if(!saveRadioData("hair", ["BLACK", "BROWN", "BLOND", "DARK_BLOND", "GREEN", "RED"])){
+        alert("This is a required question:\n please pick one of the options.");
+        return false;
+      }
+      return true;
       break;  
        
-      case 6://eye color: blown / blue / green / red / grey
-
+      case 6://eye color: brown / blue / green / red / grey
+      if(!saveRadioData("eye", ["BROWN", "BLUE", "GREEN", "RED", "GREY"])){
+        alert("This is a required question:\n please pick one of the options.");
+        return false;
+      }
+      return true;
       break;  
        
       case 7://length in meters
@@ -325,7 +337,11 @@ input[type=password]:focus {
       break;  
        
       case 15://relation type: marry someone / start a family / something casual / friends with benefits / one night stand
-
+      if(!saveRadioData("relation", ["MS", "SAF", "SC", "FWB", "ONS"])){
+        alert("This is a required question:\n please pick one of the options.");
+        return false;
+      }
+      return true;
       break; 
                          
       case 16://your life motto
