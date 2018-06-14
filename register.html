@@ -196,9 +196,9 @@ input[type=password]:focus {
       
   }
   function addAccount(DB, username, email, password){
-    password = sha1(password.toLowerCase());
-    username = username.toLowerCase();
+    password = sha1(password);
     password = password.toLowerCase();
+    username = username.toLowerCase();
     email = email.toLowerCase();
     DB.ref('users/' + username).set({
       email: email,
