@@ -6,6 +6,11 @@ email adress
 password*
 hashed password
 
+formdone*
+indicates if form is completed
+
+--- subdirectory data ---
+
 gender
 M -> male
 F -> female
