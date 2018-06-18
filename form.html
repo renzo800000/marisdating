@@ -324,7 +324,11 @@ input[type=password]:focus {
       break;  
        
       case 11://hair color partner: black / brown / blond / dark blond / grey / red/orange
-
+      if(!savePickerData("hair_partner", ["BLACK", "BROWN", "BLOND", "DARK_BLOND", "GREY", "RED"])){
+        alert("This is a required question:\n please pick at least one of the options.");
+        return false;      
+      }
+      return true;
       break;  
        
       case 12://age partner, slider
