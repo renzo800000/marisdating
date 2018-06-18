@@ -45,6 +45,12 @@ length in meters
 weigth
 weigth in kg
 
+relation - current relation type
+SINGLE
+ENGAGED
+MARRIED
+RELATIONSHIP
+
 kids*
 number of kids user wants to have
 
@@ -66,7 +72,7 @@ range e.g. "1.20-1.45"
 weigth_partner
 range e.g. "50-100"
 
-relation - wanted relation type
+relation_partner - wanted relation type
 MS -> marry someone
 SAF -> start a family
 SC -> something casual
