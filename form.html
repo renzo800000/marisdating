@@ -644,7 +644,7 @@ input[type=password]:focus {
       if(r.checked){
         var DB = firebase.database();
         var username = getCookie("username");
-        DB.ref("users/" + username + "/data/" + key).set({v: vals[i]});
+        DB.ref("users/" + username + "/data/" + key).set(vals[i]);
         return true;
       }
     }
@@ -665,7 +665,7 @@ input[type=password]:focus {
     if(val.length>0){
       var DB = firebase.database();
       var username = getCookie("username");
-      DB.ref("users/" + username + "/data/" + key).set({v: val});
+      DB.ref("users/" + username + "/data/" + key).set(val);
       return true;  
     }
     return false;  
