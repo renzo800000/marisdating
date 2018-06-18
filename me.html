@@ -210,6 +210,7 @@ input[type=password]:focus {
     
   function loadMatches(){
       var DB = firebase.database();
+      var username = getCookie("username");
       DB.ref("users/" + username.toLowerCase() + "/data/name").once("value", snapshot => {
         var user = document.getElementById("username");
         var name = snapshot.val().split(" ")[0];    
