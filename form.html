@@ -308,6 +308,7 @@ input[type=password]:focus {
        
       case 4://age, slider
       saveSlider("age", 0);
+      return true;
       break;  
        
       case 5://my hair color: black / brown / blond / dark blond / grey / Red/orange
@@ -328,10 +329,12 @@ input[type=password]:focus {
        
       case 7://length in meters, slider
       saveSlider("length", 2);
+      return true;
       break;  
        
       case 8://weight in kg, slider
       saveSlider("weigth", 0);
+      return true;
       break;  
        
       case 9://relation status: single / engaged / married / in a relationship
@@ -344,6 +347,7 @@ input[type=password]:focus {
        
       case 10://how many kids do you want, slider
       saveSlider("kids", 0);
+      return true;
       break;  
        
       case 11://hair color partner: black / brown / blond / dark blond / grey / red/orange
@@ -356,14 +360,17 @@ input[type=password]:focus {
        
       case 12://age partner, range slider
       saveRange("age_partner", 0);
+      return true;
       break;  
        
       case 13://length partner, range slider
       saveRange("length_partner", 2);
+      return true;
       break;  
        
       case 14://weight partner, range slider
       saveRange("weigth_partner", 0);
+      return true;
       break;  
        
       case 15://relation type: marry someone / start a family / something casual / friends with benefits / one night stand
