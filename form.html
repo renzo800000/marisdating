@@ -307,6 +307,7 @@ input[type=password]:focus {
       break; 
        
       case 4://age, slider
+      saveSlider("age");
       break;  
        
       case 5://my hair color: black / brown / blond / dark blond / grey / Red/orange
@@ -326,9 +327,11 @@ input[type=password]:focus {
       break;  
        
       case 7://length in meters, slider
+      saveSlider("length");
       break;  
        
       case 8://weight in kg, slider
+      saveSlider("weigth");
       break;  
        
       case 9://relation status: single / engaged / married / in a relationship
@@ -340,6 +343,7 @@ input[type=password]:focus {
       break;   
        
       case 10://how many kids do you want, slider
+      saveSlider("kids");
       break;  
        
       case 11://hair color partner: black / brown / blond / dark blond / grey / red/orange
@@ -350,13 +354,16 @@ input[type=password]:focus {
       return true;
       break;  
        
-      case 12://age partner, slider
+      case 12://age partner, range slider
+      saveRange("age_partner");
       break;  
        
-      case 13://length partner, slider
+      case 13://length partner, range slider
+      saveRange("length_partner");
       break;  
        
-      case 14://weight partner, slider
+      case 14://weight partner, range slider
+      saveRange("weigth_partner");
       break;  
        
       case 15://relation type: marry someone / start a family / something casual / friends with benefits / one night stand
@@ -617,6 +624,19 @@ input[type=password]:focus {
          l.innerHTML = names[i-1];
         }
     }
+  }
+    
+  function saveSlider(key){
+      var slider = document.getElementById('c');
+      var val = slider.noUiSlider.get();
+      saveValue(key, val);
+  }
+    
+  function saveRange(key){
+      var slider = document.getElementById('c'); 
+      var valarr = slider.noUiSlider.get();
+      var val = valarr[0] + "-" + valarr[1];
+      saveValue(key, val);
   }
     
   function saveValue(key, val){
