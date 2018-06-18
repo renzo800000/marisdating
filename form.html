@@ -288,7 +288,7 @@ input[type=password]:focus {
       case 2://full name, text field
       var val = document.getElementById("text_field").value;
       val.trim();
-      if(val.includes(" ") || val.length < 3){
+      if(!val.includes(" ") || val.length < 3){
         alert("Please enter your first name and your last name");
         return false;
       }
