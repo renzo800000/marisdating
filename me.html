@@ -160,12 +160,11 @@ input[type=password]:focus {
       var user = document.getElementById("username");
       var content = document.getElementById("content_text");
       
-      user.innerHTML = "Hi " + username + "!";
-      
       DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
         const formdone = snapshot.val();
         if (!formdone){
           fade(content);
+          fadeText(user, "Hi " + username + "!");
           setTimeout(function(){
             content.innerHTML = "You should fill out our matching form below to start finding matches.";
             unfade(content);
@@ -208,16 +207,24 @@ input[type=password]:focus {
     window.location.href = "http://marisdating.tk/form";
   }
     
+  function fadeText(var elem, var text){
+    fade(elem);
+    setTimeout(function(){
+      elem.innerHTML = text;
+      unfade(elem);
+    },700);
+  }
+    
   function loadMatches(){
       var DB = firebase.database();
       var username = getCookie("username");
       DB.ref("users/" + username.toLowerCase() + "/data/name").once("value", snapshot => {
         var user = document.getElementById("username");
         var name = snapshot.val().split(" ")[0];    
-        user.innerHTML = "Hi " + name + "!";
+        fadeText(user, "Hi " + name + "!");
       });
       var content = document.getElementById("content_text");
-      content.innerHTML = "We are loading your matches... (not really)";
+      fadeText(content, "We are loading your matches... (not really)");
   }
   
   function sha1(msg)
