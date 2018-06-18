@@ -307,7 +307,7 @@ input[type=password]:focus {
       break; 
        
       case 4://age, slider
-      saveSlider("age");
+      saveSlider("age", 0);
       break;  
        
       case 5://my hair color: black / brown / blond / dark blond / grey / Red/orange
@@ -327,11 +327,11 @@ input[type=password]:focus {
       break;  
        
       case 7://length in meters, slider
-      saveSlider("length");
+      saveSlider("length", 2);
       break;  
        
       case 8://weight in kg, slider
-      saveSlider("weigth");
+      saveSlider("weigth", 0);
       break;  
        
       case 9://relation status: single / engaged / married / in a relationship
@@ -343,7 +343,7 @@ input[type=password]:focus {
       break;   
        
       case 10://how many kids do you want, slider
-      saveSlider("kids");
+      saveSlider("kids", 0);
       break;  
        
       case 11://hair color partner: black / brown / blond / dark blond / grey / red/orange
@@ -355,15 +355,15 @@ input[type=password]:focus {
       break;  
        
       case 12://age partner, range slider
-      saveRange("age_partner");
+      saveRange("age_partner", 0);
       break;  
        
       case 13://length partner, range slider
-      saveRange("length_partner");
+      saveRange("length_partner", 2);
       break;  
        
       case 14://weight partner, range slider
-      saveRange("weigth_partner");
+      saveRange("weigth_partner", 0);
       break;  
        
       case 15://relation type: marry someone / start a family / something casual / friends with benefits / one night stand
@@ -626,16 +626,16 @@ input[type=password]:focus {
     }
   }
     
-  function saveSlider(key){
+  function saveSlider(key, dec){
       var slider = document.getElementById('c');
-      var val = slider.noUiSlider.get();
+      var val = Number(slider.noUiSlider.get()).toFixed(dec);
       saveValue(key, val);
   }
     
-  function saveRange(key){
+  function saveRange(key, dec){
       var slider = document.getElementById('c'); 
       var valarr = slider.noUiSlider.get();
-      var val = valarr[0] + "-" + valarr[1];
+      var val = Number(valarr[0]).toFixed(dec) + "-" + Number(valarr[1]).toFixed(dec);
       saveValue(key, val);
   }
     
