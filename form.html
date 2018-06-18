@@ -261,10 +261,31 @@ input[type=password]:focus {
     if(!saveData(currentQuestion())){return;}
     var mainBlock = document.getElementById("main");
     setTimeout(function(){
-      if(currentQuestion()==16)window.location.href = "http://marisdating.tk/me";
+      if(currentQuestion()==16){
+        if(checkDB()){
+          var DB = firebase.database();
+          var username = getCookie("username");
+          DB.ref("users/" + username.toLowerCase() + "/formdone").set(true);
+        }
+        window.location.href = "http://marisdating.tk/me";
+      }
       else window.location.href = ("http://marisdating.tk/form?question=" + (currentQuestion() + 1));
     },700);
     fade(mainBlock);
+  }
+    
+  function checkDB(){
+    var DB = firebase.database();
+    var username = getCookie("username");
+    var keys = ["gender", "sexuality", "name", "phone", "age", "hair", "eye", "length", "weigth", "relation", "kids", "hair_partner", "age_partner", "length_partner", "weigth_partner", "relation_partner", "motto"]
+    for(var i = 0; i<keys.length;i++){
+      DB.ref("users/" + username.toLowerCase() + "/data/" + keys[i]).once("value", snapshot => {
+        if (snapshot.val()){
+          return false;
+        }
+      });   
+    }
+    return true;
   }
     
   function saveData(q){
