@@ -285,13 +285,28 @@ input[type=password]:focus {
       return true;
       break; 
        
-      case 2://full name
+      case 2://full name, text field
+      var val = document.getElementById("text_field").value;
+      val.trim();
+      if(val.includes(" ") || val.length < 3){
+        alert("Please enter your first name and your last name");
+        return false;
+      }
+      saveValue("name", val);
+      return true;
       break; 
             
-      case 3://phone number
-      break;  
+      case 3://phone number, text field
+      var val = Number(document.getElementById("text_field").value);
+      if(val < 0){
+        alert("Your phone number can't be negative");
+        return false;
+      }
+      saveValue("phone", val);
+      return true;
+      break; 
        
-      case 4://age
+      case 4://age, slider
       break;  
        
       case 5://my hair color: black / brown / blond / dark blond / grey / Red/orange
@@ -310,17 +325,21 @@ input[type=password]:focus {
       return true;
       break;  
        
-      case 7://length in meters
+      case 7://length in meters, slider
       break;  
        
-      case 8://weight in kg
+      case 8://weight in kg, slider
       break;  
        
       case 9://relation status: single / engaged / married / in a relationship
-
+      if(!saveRadioData("relation", ["SINGLE", "ENGAGED", "MARRIED", "RELATIONSHIP"])){
+        alert("This is a required question:\n please pick one of the options.");
+        return false;
+      }
+      return true;
       break;   
        
-      case 10://how many kids do you want
+      case 10://how many kids do you want, slider
       break;  
        
       case 11://hair color partner: black / brown / blond / dark blond / grey / red/orange
@@ -348,8 +367,15 @@ input[type=password]:focus {
       return true;
       break; 
                          
-      case 16://your life motto
-
+      case 16://your life motto, text field
+      var val = document.getElementById("text_field").value;
+      val.trim();
+      if(val.length<4){
+        alert("Your life motto should contain at least 4 letters.");
+        return false;
+      }
+      saveValue("motto", val);
+      return true;
       break; 
     }
   }
@@ -591,6 +617,12 @@ input[type=password]:focus {
          l.innerHTML = names[i-1];
         }
     }
+  }
+    
+  function saveValue(key, val){
+    var DB = firebase.database();
+    var username = getCookie("username");
+    DB.ref("users/" + username + "/data/" + key).set(val);
   }
   function hideField(){
     var t = document.getElementById("text_field"); 
