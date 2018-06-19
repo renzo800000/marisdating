@@ -225,8 +225,10 @@ input[type=password]:focus {
         var name = snapshot.val().split(" ")[0];    
         fadeText(user, "Hi " + name + "!");
       });
-      var content = document.getElementById("content_text");
-      fadeText(content, "We are loading your matches... (not really)");
+      setTimeout(function(){
+        var content = document.getElementById("content_text");
+        fadeText(content, "We are loading your matches... (not really)");
+      },700);
   }
   
   function sha1(msg)
