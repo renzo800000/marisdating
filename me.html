@@ -268,11 +268,11 @@ function addBlock(txt, mottoTXT, email, phone){
 }
     
 function whatsapp(number){
-  confirm("whatsapping " + number);
+  window.open("https://api.whatsapp.com/send?phone=" + number);
 }
     
 function mail(address){
-  confirm("emailing " + address);
+  window.open("https://mail.google.com/mail?view=cm&to=" + address);
 }
 
 function matchNumberRange(number, range) {
