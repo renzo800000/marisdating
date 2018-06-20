@@ -277,9 +277,9 @@ DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
     if(d.key==="relation_partner")relation_partner=d.val();    
     if(d.key==="kids")kids=d.val();       
   });
+  confirm(kids);
 });
-    
-confirm(kids);
+   
 
 var score = 0;
 
