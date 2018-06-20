@@ -173,7 +173,18 @@ input[type=password]:focus {
               content.innerHTML = "You should fill out our matching form below to start finding matches.";
               unfade(content);
               setTimeout(function(){
-                var body = document.getElementsByTagName('body')[0];
+                showFormButton();
+              },700);
+            }, 700);
+          }, 700);
+        }else{
+          loadMatches();
+        }
+      });
+  }
+    
+function showFormButton(){
+  var body = document.getElementsByTagName('body')[0];
                 
               /*
               var newblock = document.createElement("div");
@@ -196,15 +207,9 @@ input[type=password]:focus {
                 container.appendChild(button);
                                
                 body.appendChild(container);
-                
-              },700);
-            }, 700);
-          }, 700);
-        }else{
-          loadMatches();
-        }
-      });
-  }
+                    
+}
+
 function matchNumberRange(number, range) {
   var rangeSplit = range.split("-");
   var a = Number(rangeSplit[0]);
@@ -365,7 +370,15 @@ if(score > 0){
       }); 
      //load matches
      showMatch("renz800000", "kamiel");
-     setTimeout(function(){confirm("hasMatches: " + hasMatches)}, 5000);
+     setTimeout(function(){
+       if(!hasMatches){
+         var content = document.getElementById("content_text");
+         fadeText(content, "We have not found you any matches.<br>You can try lowering your standards, or you can try searching for another type of relation.");
+         setTimeout(function(){
+           showFormButton();    
+         },700);
+       }
+     }, 5000);
   }
   
   function sha1(msg)
