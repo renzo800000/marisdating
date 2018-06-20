@@ -239,10 +239,6 @@ function addBlock(txt, mottoTXT, email, phone){
               motto.innerHTML = mottoTXT;
               container.appendChild(motto);
     
-              var padding2 = document.createElement("div");
-              padding2.setAttribute("class", "padding-10");
-              container.appendChild(padding2);
-    
               var btnContainer = document.createElement("div");
     
               var phoneButton = document.createElement("button");
@@ -253,7 +249,9 @@ function addBlock(txt, mottoTXT, email, phone){
               btnContainer.appendChild(phoneButton);
     
               var btnPadding = document.createElement("div");
-              btnPadding.setAttribute("class", "inline-padding-50");
+              btnPadding.setAttribute("class", "inline");
+              btnPadding.setAttribute("style", "visibility: hidden;");
+              btnPadding.innerHTML = "XXX";
               btnContainer.appendChild(btnPadding);
     
               var mailButton = document.createElement("button");
