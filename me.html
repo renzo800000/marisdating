@@ -250,7 +250,7 @@ function compare(user1, user2){
 var DB = firebase.database();
 
 DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
-  snapshot.foreach(function(d){
+  snapshot.forEach(function(d){
     confirm(d.key + ": " + d.val());
     if(d.key==="age")var age=d.val();
     if(d.key==="age_partner")var age_partner=d.val();
