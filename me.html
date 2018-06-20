@@ -260,6 +260,19 @@ var weigth;
 var weigth_partner;
 var relation_partner;
 var kids;
+    
+var _age;
+var _age_partner;
+var _gender;
+var _sexuality;
+var _hair;
+var _hair_partner;
+var _length;
+var _length_partner;
+var _weigth;
+var _weigth_partner;
+var _relation_partner;
+var _kids;
 
 DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
   snapshot.forEach(function(d){
@@ -276,11 +289,23 @@ DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
     if(d.key==="relation_partner")relation_partner=d.val();    
     if(d.key==="kids")kids=d.val();       
   });
-  confirm(kids);
-});
-   
-
-var score = 0;
+    
+  DB.ref("users/" + user2 + "/data").once('value', function(snapshot){
+  snapshot.forEach(function(d){
+    if(d.key==="age")_age=d.val();
+    if(d.key==="age_partner")_age_partner=d.val();
+    if(d.key==="gender")_gender=d.val();
+    if(d.key==="sexuality")_sexuality=d.val();    
+    if(d.key==="hair")_hair=d.val();    
+    if(d.key==="hair_partner")_hair_partner=d.val();    
+    if(d.key==="length")_length=d.val();    
+    if(d.key==="length_partner")_length_partner=d.val();    
+    if(d.key==="weigth")_weigth=d.val();    
+    if(d.key==="weigth_partner")_weigth_partner=d.val();    
+    if(d.key==="relation_partner")_relation_partner=d.val();    
+    if(d.key==="kids")_kids=d.val();       
+    });
+    var score = 0;
 
 //age
 if(matchNumberRange(_age, age_partner))score+=10;
@@ -308,7 +333,9 @@ if(!checkGenders(_gender, _sexuality, gender))score=-1;
 //relation type
 if(relation_partner !== _relation_partner)score=-1;
 
-return score/8;   
+confirm("percentage: " + score/8);
+  });
+});
 }
     
   function goForm(){
