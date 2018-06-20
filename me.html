@@ -205,6 +205,114 @@ input[type=password]:focus {
       });
   }
     
+  function compare(user1, user2){
+    function out() {
+  var args = Array.prototype.slice.call(arguments, 0);
+  document.getElementById('output').innerHTML += args.join(" ") + "<br>";
+}
+
+function matchNumberRange(number, range) {
+  var rangeSplit = range.split("-");
+  var a = Number(rangeSplit[0]);
+  var b = Number(rangeSplit[1]);
+  var num = Number(number);
+  if (num >= a && num <= b) return true;
+  return false;
+}
+
+function matchTextList(item, list) {
+  var items = list.split("-");
+  for (var i = 0; i < items.length; i++) {
+    if (items[i] === item) return true;
+  }
+  return false;
+}
+
+var gender = "M";
+var sexuality = "H";
+var _gender = "F";
+var _sexuality = "H";
+
+var age_partner = "14-17";
+var age = "15";
+var _age_partner = "14-17";
+var _age = "15";
+
+var hair_partner = "BLACK-BROWN-BLOND-DARK_BLOND-RED";
+var _hair = "DARK_BLOND";
+var hair = "DARK_BLOND";
+var _hair_partner = "BLACK-BROWN-BLOND-DARK_BLOND-RED";
+
+var length_partner = "1.50-1.85";
+var _length = "1.85";
+var _length_partner = "1.50-1.85";
+var length = "1.85";
+
+var weigth_partner = "50-80";
+var _weigth = "80";
+var _weigth_partner = "50-80";
+var weigth = "80";
+
+var relation_partner = "FWB";
+var _relation_partner = "FWB";
+
+var kids = 2;
+var _kids = 2;
+
+function checkGenders(gender, sexuality, _gender){
+  var male = (gender === "M");
+  var likes_men = false;
+  var likes_women = false;
+
+  if (sexuality === "H") {
+    likes_women = male;
+    likes_men = !male;
+  }
+  if (sexuality === "G") {
+    likes_women = !male;
+    likes_men = male;
+  }
+  if (sexuality === "B") {
+    likes_women = true;
+    likes_men = true;
+  }
+
+  if (likes_men && _gender === "M") return true;
+  if (likes_women && _gender === "F") return true;
+  else return false;
+}
+
+var score = 0;
+
+//age
+if(matchNumberRange(_age, age_partner))score+=10;
+if(matchNumberRange(age, _age_partner))score+=10;
+
+//hair
+if(matchTextList(_hair, hair_partner))score+=10;
+if(matchTextList(hair, _hair_partner))score+=10;
+
+//length
+if(matchNumberRange(_length, length_partner))score+=10;
+if(matchNumberRange(length, _length_partner))score+=10;
+
+//weigth
+if(matchNumberRange(_weigth, weigth_partner))score+=10;
+if(matchNumberRange(weigth, _weigth_partner))score+=10;
+
+//kids are the multiplier
+score = score*5 + score*0.5*(10-Math.abs(kids - _kids)*4);
+
+//genders
+if(!checkGenders(gender, sexuality, _gender))score=-1;
+if(!checkGenders(_gender, _sexuality, gender))score=-1;
+
+//relation type
+if(relation_partner !== _relation_partner)score=-1;
+
+out(((score/800)*100).toFixed(0) + "%");    
+  }
+    
   function goForm(){
     window.location.href = "http://marisdating.tk/form";
   }
