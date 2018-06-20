@@ -263,7 +263,6 @@ var kids;
 
 DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
   snapshot.forEach(function(d){
-    confirm(d.key + ": " + d.val());
     if(d.key==="age")age=d.val();
     if(d.key==="age_partner")age_partner=d.val();
     if(d.key==="gender")gender=d.val();
