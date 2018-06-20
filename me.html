@@ -250,20 +250,20 @@ function compare(user1, user2){
 var DB = firebase.database();
 
 DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
-  snapshot.foreach(function(var){
-    confirm(var.key + ": " + var.val());
-    if(var.key==="age")var age=var.val();
-    if(var.key==="age_partner")var age_partner=var.val();
-    if(var.key==="gender")var gender=var.val();
-    if(var.key==="sexuality")var sexuality=var.val();    
-    if(var.key==="hair")var hair=var.val();    
-    if(var.key==="hair_partner")var hair_partner=var.val();    
-    if(var.key==="length")var length=var.val();    
-    if(var.key==="length_partner")var length_partner=var.val();    
-    if(var.key==="weigth")var weigth=var.val();    
-    if(var.key==="weigth_partner")var weigth_partner=var.val();    
-    if(var.key==="relation_partner")var relation_partner=var.val();    
-    if(var.key==="kids")var kids=var.val();       
+  snapshot.foreach(function(d){
+    confirm(d.key + ": " + d.val());
+    if(d.key==="age")var age=d.val();
+    if(d.key==="age_partner")var age_partner=d.val();
+    if(d.key==="gender")var gender=d.val();
+    if(d.key==="sexuality")var sexuality=d.val();    
+    if(d.key==="hair")var hair=d.val();    
+    if(d.key==="hair_partner")var hair_partner=d.val();    
+    if(d.key==="length")var length=d.val();    
+    if(d.key==="length_partner")var length_partner=d.val();    
+    if(d.key==="weigth")var weigth=d.val();    
+    if(d.key==="weigth_partner")var weigth_partner=d.val();    
+    if(d.key==="relation_partner")var relation_partner=d.val();    
+    if(d.key==="kids")var kids=d.val();       
   }
 }
 
