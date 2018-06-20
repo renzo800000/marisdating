@@ -304,6 +304,15 @@ var _weigth;
 var _weigth_partner;
 var _relation_partner;
 var _kids;
+    
+var name;
+var phone;
+var motto;
+var email;
+    
+DB.ref("users/" + user2 + "/email").once('value', function(snapshot){
+  email = snapshot.val();                                         
+});
 
 DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
   snapshot.forEach(function(d){
@@ -334,7 +343,10 @@ DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
     if(d.key==="weigth")_weigth=d.val();    
     if(d.key==="weigth_partner")_weigth_partner=d.val();    
     if(d.key==="relation_partner")_relation_partner=d.val();    
-    if(d.key==="kids")_kids=d.val();       
+    if(d.key==="kids")_kids=d.val();
+    if(d.key==="name")name=d.val();    
+    if(d.key==="phone")phone=d.val();    
+    if(d.key==="motto")motto=d.val();    
     });
     var score = 0;
 
@@ -368,7 +380,7 @@ score = score / 8;
 
 if(score > 0){
   matches += 1;
-  addBlock(user2 + " - " + score.toFixed(0));
+  addBlock(name + " - " + score.toFixed(0) + "%");
 }
 });
 });
