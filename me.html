@@ -245,7 +245,7 @@ function checkGenders(gender, sexuality, _gender){
 }
     
 
-function compare(user1, user2){
+function showMatch(user1, user2){
     
 var DB = firebase.database();
 var age;
@@ -359,7 +359,7 @@ confirm("percentage: " + score/8);
         fadeText(user, "Hi " + name + "!");
       }); 
      //load matches
-     compare("renz800000", "kamiel");
+     showMatch("renz800000", "kamiel");
   }
   
   function sha1(msg)
