@@ -248,13 +248,6 @@ input[type=password]:focus {
       }
       
       title.innerHTML = getTitle(currentQuestion());
-      
-      DB.ref("users/" + username.toLowerCase() + "/formdone").once("value", snapshot => {
-        const formdone = snapshot.val();
-        if (formdone){
-          window.location.href = "http://marisdating.tk/me"; 
-        }
-      });
   }
     
   function next(){
