@@ -50,7 +50,7 @@ length in meters
 weigth
 weigth in kg
 
-relation - current relation type
+relation* - current relation type
 SINGLE
 ENGAGED
 MARRIED
