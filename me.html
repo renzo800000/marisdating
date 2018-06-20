@@ -210,8 +210,12 @@ function showFormButton(){
                     
 }
     
-function addBlock(text){
+function addBlock(txt){
   var body = document.getElementsByTagName('body')[0];
+    
+              var padding = document.createElement("div");
+              padding.setAttribute("class", "padding-10");
+              body.appendChild(padding);
                 
               
               var newblock = document.createElement("div");
@@ -223,7 +227,7 @@ function addBlock(text){
               newblock.appendChild(container);
                 
               var text = document.createElement("h3");
-              text.innerHTML = text;
+              text.innerHTML = txt;
               text.setAttribute("class", "w3-center");
               container.appendChild(text);
                                
