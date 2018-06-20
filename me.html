@@ -377,8 +377,10 @@ if(score > 0){
          setTimeout(function(){
            showFormButton();    
          },700);
+       }else if(matches == 1){
+         fadeText(content, "We have found 1 match for you!");    
        }else{
-         fadeText(content, "We have found " + matches + " matches for you!");    
+         fadeText(content, "We have found " + matches + " matches for you!");        
        }
      }, 5000);
   }
