@@ -259,14 +259,22 @@ function addBlock(txt, mottoTXT, email, phone){
               var mailButton = document.createElement("button");
               mailButton.setAttribute("class", "inline w3-opacity-min w3-button w3-center w3-black");
               mailButton.setAttribute("type", "button");
-              mailButton.setAttribute("onclick", "mail(" + phone + ")");
-              mailButton.innerHTML = "EMail";
+              mailButton.setAttribute("onclick", "mail(" + email + ")");
+              mailButton.innerHTML = "Email";
               btnContainer.appendChild(mailButton);
     
               container.appendChild(btnContainer);
                 
               body.appendChild(newblock);
                     
+}
+    
+function whatsapp(number){
+  confirm("whatsapping " + number);
+}
+    
+function mail(address){
+  confirm("emailing " + address);
 }
 
 function matchNumberRange(number, range) {
