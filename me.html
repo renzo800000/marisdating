@@ -146,7 +146,7 @@ input[type=password]:focus {
     
 <script>
     
-  var hasMatches = false;
+  var matches = 0;;
   
   function load(){
       
@@ -342,7 +342,7 @@ if(relation_partner !== _relation_partner)score=-1;
 score = score / 8;
 
 if(score > 0){
-  hasMatches = true;
+  matches += 1;
 }
 });
 });
@@ -371,12 +371,14 @@ if(score > 0){
      //load matches
      showMatch("renz800000", "kamiel");
      setTimeout(function(){
-       if(!hasMatches){
-         var content = document.getElementById("content_text");
+       var content = document.getElementById("content_text");
+       if(matches < 1){
          fadeText(content, "We have not found you any matches.<br>You can try lowering your standards, or you can try searching for another type of relation.");
          setTimeout(function(){
            showFormButton();    
          },700);
+       }else{
+         fadeText(content, "We have found " + matches + " matches for you!");    
        }
      }, 5000);
   }
