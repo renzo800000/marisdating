@@ -210,7 +210,7 @@ function showFormButton(){
                     
 }
     
-function addBlock(txt){
+function addBlock(txt, motto, email, phone){
   var body = document.getElementsByTagName('body')[0];
     
               var padding = document.createElement("div");
@@ -228,8 +228,12 @@ function addBlock(txt){
                 
               var text = document.createElement("h3");
               text.innerHTML = txt;
-              text.setAttribute("class", "w3-center");
               container.appendChild(text);
+    
+              var motto = document.createElement("p");
+              motto.innerHTML = motto;
+              container.appendChild(motto);
+                
                                
               body.appendChild(newblock);
                     
