@@ -264,8 +264,8 @@ DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
     if(d.key==="weigth_partner")var weigth_partner=d.val();    
     if(d.key==="relation_partner")var relation_partner=d.val();    
     if(d.key==="kids")var kids=d.val();       
-  }
-}
+  });
+});
 
 var gender = "M";
 var sexuality = "H";
