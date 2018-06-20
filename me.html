@@ -217,12 +217,7 @@ function showFormButton(){
     
 function addBlock(txt, mottoTXT, email, phone){
   var body = document.getElementsByTagName('body')[0];
-    
-              var padding = document.createElement("div");
-              padding.setAttribute("class", "padding-10");
-              body.appendChild(padding);
                 
-              
               var newblock = document.createElement("div");
               newblock.setAttribute("class", "w3-center w3-content w3-display-container w3-animate-opacity block");
               newblock.setAttribute("style", "white-space:nowrap;");
@@ -264,6 +259,11 @@ function addBlock(txt, mottoTXT, email, phone){
               container.appendChild(btnContainer);
                 
               body.appendChild(newblock);
+    
+        
+              var padding = document.createElement("div");
+              padding.setAttribute("class", "padding-10");
+              body.appendChild(padding);
                     
 }
     
@@ -550,6 +550,7 @@ function unfade(element) {
       <p id="content_text" class="w3-center">Loading your matches...</p>
   </div>
 </div>
+<div class="padding-10"></div>
 
 </body>
 </html>
