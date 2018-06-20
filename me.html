@@ -57,6 +57,11 @@ body, html {
   width:10%;
 }
     
+.inline-padding-50{
+  display:inline;
+  width:50%;
+}
+    
 .form-label{
   text-align: left;
   width:20%
@@ -233,8 +238,33 @@ function addBlock(txt, mottoTXT, email, phone){
               var motto = document.createElement("p");
               motto.innerHTML = mottoTXT;
               container.appendChild(motto);
+    
+              var padding2 = document.createElement("div");
+              padding2.setAttribute("class", "padding-10");
+              container.appendChild(padding2);
+    
+              var btnContainer = document.createElement("div");
+    
+              var phoneButton = document.createElement("button");
+              phoneButton.setAttribute("class", "inline w3-opacity-min w3-button w3-center w3-black");
+              phoneButton.setAttribute("type", "button");
+              phoneButton.setAttribute("onclick", "whatsapp(" + phone + ")");
+              phoneButton.innerHTML = "Whatsapp";
+              btnContainer.appendChild(phoneButton);
+    
+              var btnPadding = document.createElement("div");
+              btnPadding.setAttribute("class", "inline-padding-50");
+              btnContainer.appendChild(btnPadding);
+    
+              var mailButton = document.createElement("button");
+              mailButton.setAttribute("class", "inline w3-opacity-min w3-button w3-center w3-black");
+              mailButton.setAttribute("type", "button");
+              mailButton.setAttribute("onclick", "mail(" + phone + ")");
+              mailButton.innerHTML = "EMail";
+              btnContainer.appendChild(mailButton);
+    
+              container.appendchild(btnContainer);
                 
-                               
               body.appendChild(newblock);
                     
 }
