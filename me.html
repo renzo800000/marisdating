@@ -204,13 +204,6 @@ input[type=password]:focus {
         }
       });
   }
-    
-  function compare(user1, user2){
-    function out() {
-  var args = Array.prototype.slice.call(arguments, 0);
-  document.getElementById('output').innerHTML += args.join(" ") + "<br>";
-}
-
 function matchNumberRange(number, range) {
   var rangeSplit = range.split("-");
   var a = Number(rangeSplit[0]);
@@ -226,6 +219,52 @@ function matchTextList(item, list) {
     if (items[i] === item) return true;
   }
   return false;
+}
+    
+function checkGenders(gender, sexuality, _gender){
+  var male = (gender === "M");
+  var likes_men = false;
+  var likes_women = false;
+
+  if (sexuality === "H") {
+    likes_women = male;
+    likes_men = !male;
+  }
+  if (sexuality === "G") {
+    likes_women = !male;
+    likes_men = male;
+  }
+  if (sexuality === "B") {
+    likes_women = true;
+    likes_men = true;
+  }
+
+  if (likes_men && _gender === "M") return true;
+  if (likes_women && _gender === "F") return true;
+  else return false;
+}
+    
+
+function compare(user1, user2){
+    
+var DB = firebase.database();
+
+DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
+  snapshot.foreach(function(var){
+    confirm(var.key + ": " + var.val());
+    if(var.key==="age")var age=var.val();
+    if(var.key==="age_partner")var age_partner=var.val();
+    if(var.key==="gender")var gender=var.val();
+    if(var.key==="sexuality")var sexuality=var.val();    
+    if(var.key==="hair")var hair=var.val();    
+    if(var.key==="hair_partner")var hair_partner=var.val();    
+    if(var.key==="length")var length=var.val();    
+    if(var.key==="length_partner")var length_partner=var.val();    
+    if(var.key==="weigth")var weigth=var.val();    
+    if(var.key==="weigth_partner")var weigth_partner=var.val();    
+    if(var.key==="relation_partner")var relation_partner=var.val();    
+    if(var.key==="kids")var kids=var.val();       
+  }
 }
 
 var gender = "M";
@@ -259,29 +298,6 @@ var _relation_partner = "FWB";
 var kids = 2;
 var _kids = 2;
 
-function checkGenders(gender, sexuality, _gender){
-  var male = (gender === "M");
-  var likes_men = false;
-  var likes_women = false;
-
-  if (sexuality === "H") {
-    likes_women = male;
-    likes_men = !male;
-  }
-  if (sexuality === "G") {
-    likes_women = !male;
-    likes_men = male;
-  }
-  if (sexuality === "B") {
-    likes_women = true;
-    likes_men = true;
-  }
-
-  if (likes_men && _gender === "M") return true;
-  if (likes_women && _gender === "F") return true;
-  else return false;
-}
-
 var score = 0;
 
 //age
@@ -310,8 +326,8 @@ if(!checkGenders(_gender, _sexuality, gender))score=-1;
 //relation type
 if(relation_partner !== _relation_partner)score=-1;
 
-out(((score/800)*100).toFixed(0) + "%");    
-  }
+return score/8;   
+}
     
   function goForm(){
     window.location.href = "http://marisdating.tk/form";
@@ -334,6 +350,7 @@ out(((score/800)*100).toFixed(0) + "%");
         fadeText(user, "Hi " + name + "!");
       }); 
      //load matches
+     compare("renz800000", "test");
   }
   
   function sha1(msg)
