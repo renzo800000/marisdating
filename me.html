@@ -248,55 +248,38 @@ function checkGenders(gender, sexuality, _gender){
 function compare(user1, user2){
     
 var DB = firebase.database();
+var age;
+var age_partner;
+var gender;
+var sexuality;
+var hair;
+var hair_partner;
+var length;
+var length_partner;
+var weigth;
+var weigth_partner;
+var relation_partner;
+var kids;
 
 DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
   snapshot.forEach(function(d){
     confirm(d.key + ": " + d.val());
-    if(d.key==="age")var age=d.val();
-    if(d.key==="age_partner")var age_partner=d.val();
-    if(d.key==="gender")var gender=d.val();
-    if(d.key==="sexuality")var sexuality=d.val();    
-    if(d.key==="hair")var hair=d.val();    
-    if(d.key==="hair_partner")var hair_partner=d.val();    
-    if(d.key==="length")var length=d.val();    
-    if(d.key==="length_partner")var length_partner=d.val();    
-    if(d.key==="weigth")var weigth=d.val();    
-    if(d.key==="weigth_partner")var weigth_partner=d.val();    
-    if(d.key==="relation_partner")var relation_partner=d.val();    
-    if(d.key==="kids")var kids=d.val();       
+    if(d.key==="age")age=d.val();
+    if(d.key==="age_partner")age_partner=d.val();
+    if(d.key==="gender")gender=d.val();
+    if(d.key==="sexuality")sexuality=d.val();    
+    if(d.key==="hair")hair=d.val();    
+    if(d.key==="hair_partner")hair_partner=d.val();    
+    if(d.key==="length")length=d.val();    
+    if(d.key==="length_partner")length_partner=d.val();    
+    if(d.key==="weigth")weigth=d.val();    
+    if(d.key==="weigth_partner")weigth_partner=d.val();    
+    if(d.key==="relation_partner")relation_partner=d.val();    
+    if(d.key==="kids")kids=d.val();       
   });
 });
-
-var gender = "M";
-var sexuality = "H";
-var _gender = "F";
-var _sexuality = "H";
-
-var age_partner = "14-17";
-var age = "15";
-var _age_partner = "14-17";
-var _age = "15";
-
-var hair_partner = "BLACK-BROWN-BLOND-DARK_BLOND-RED";
-var _hair = "DARK_BLOND";
-var hair = "DARK_BLOND";
-var _hair_partner = "BLACK-BROWN-BLOND-DARK_BLOND-RED";
-
-var length_partner = "1.50-1.85";
-var _length = "1.85";
-var _length_partner = "1.50-1.85";
-var length = "1.85";
-
-var weigth_partner = "50-80";
-var _weigth = "80";
-var _weigth_partner = "50-80";
-var weigth = "80";
-
-var relation_partner = "FWB";
-var _relation_partner = "FWB";
-
-var kids = 2;
-var _kids = 2;
+    
+confirm(kids);
 
 var score = 0;
 
