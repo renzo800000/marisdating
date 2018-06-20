@@ -290,8 +290,8 @@ DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
     if(d.key==="kids")kids=d.val();       
   });
     
-  DB.ref("users/" + user2 + "/data").once('value', function(snapshot){
-  snapshot.forEach(function(d){
+  DB.ref("users/" + user2 + "/data").once('value', function(snapshot2){
+  snapshot2.forEach(function(d){
     if(d.key==="age")_age=d.val();
     if(d.key==="age_partner")_age_partner=d.val();
     if(d.key==="gender")_gender=d.val();
