@@ -449,9 +449,9 @@ if(score > 0){
      //load matches
      DB.ref("users").once('value', function(snapshot){
        snapshot.forEach(function(d){
-         confirm(d.key);
          showMatch(username, d.key);    
        });
+       setTimeout(function(){
        var content = document.getElementById("content_text");
        if(matches < 1){
          fadeText(content, "We have not found you any matches.<br>You can try lowering your standards, or you can try searching for another type of relation.");
@@ -463,6 +463,7 @@ if(score > 0){
        }else{
          fadeText(content, "We have found " + matches + " matches for you!");        
        }
+       },1000);
      });
   }
   
