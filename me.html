@@ -318,6 +318,7 @@ function checkGenders(gender, sexuality, _gender){
 
 function showMatch(user1, user2){
     
+try{
 var DB = firebase.database();
 var age;
 var age_partner;
@@ -424,6 +425,9 @@ if(score > 0){
 }
 });
 });
+}catch(err){
+  console.log(user2 + " has not (yet) fully completed their matching form.");    
+}
 }
     
   function goForm(){
