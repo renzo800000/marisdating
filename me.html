@@ -447,8 +447,10 @@ if(score > 0){
         fadeText(user, "Hi " + name + "!");
       }); 
      //load matches
-     showMatch("renz800000", "kamiel");
-     setTimeout(function(){
+     DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
+       snapshot.forEach(function(d){
+         showMatch(username, d.val());    
+       });
        var content = document.getElementById("content_text");
        if(matches < 1){
          fadeText(content, "We have not found you any matches.<br>You can try lowering your standards, or you can try searching for another type of relation.");
@@ -460,7 +462,7 @@ if(score > 0){
        }else{
          fadeText(content, "We have found " + matches + " matches for you!");        
        }
-     }, 5000);
+     });
   }
   
   function sha1(msg)
