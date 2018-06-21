@@ -447,7 +447,7 @@ if(score > 0){
         fadeText(user, "Hi " + name + "!");
       }); 
      //load matches
-     DB.ref("users/" + user1 + "/data").once('value', function(snapshot){
+     DB.ref("users").once('value', function(snapshot){
        snapshot.forEach(function(d){
          showMatch(username, d.val());    
        });
