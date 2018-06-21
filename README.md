@@ -1,4 +1,4 @@
 # marisdating
 Maris Dating
 
-Made by renzo Ligthart & Kamiel lagerwerf
+Made by Renzo Ligthart & Kamiel Lagerwerf
