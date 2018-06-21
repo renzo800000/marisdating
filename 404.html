@@ -1,1 +1,130 @@
+<!--
+Maris Dating english homepage
+Renzo Ligthart en Kamiel lagerwerf
+-->
 
+<!DOCTYPE html>
+<html>
+<title>Maris Dating</title>
+<link rel="shortcut icon" type="image/x-icon" href="logo.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- import styles and fonts. styles.css extracted from w3schools, fonts.css from google -->
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+    
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('mountains.jpg');    
+}
+    
+.block
+{
+    background: rgba(255, 255, 255, .8);
+    max-width:980px;
+    width:60%;
+}
+   
+/* Create a Parallax Effect (a parallax effect is an effect where the background stays stationary while the foreground scrolls) */
+.img{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    
+.inline{
+  display:inline;    
+}
+    
+.inline-padding-10{
+  display:inline;
+  width:10%;
+}
+/* Backround image */
+.img{
+    background-image: url('mountains.jpg');
+    min-height: 100%;
+}
+    
+.padding-10{
+    height:10%;    
+}
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+/* Turn off parallax effect for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .block{
+        background: rgb(255, 255, 255);
+        width:100%;
+    }
+}
+::-webkit-scrollbar
+{
+    width:0px;
+}
+</style>
+    
+<body onload="cookieAlert()">
+    
+<script>
+  function load(){
+    cookieAlert();
+    setTimeout(function(){
+      window.location.href = "marisdating.tk"; 
+    },1000)
+  }
+    
+  function cookieAlert(){
+    if(!(getCookie("cookies") === "yes")){
+      if(confirm("By using this site, you consent with the usage of cookies to save user data. (not a joke)")){
+        setCookie("cookies", "yes", 9999);
+      }else{
+        windowClose();   
+      }
+    }
+  }
+  function windowClose() {
+    window.open('','_parent','');
+    window.close();
+  }
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+  }
+</script>
+<!-- parallax background with maris dating foreground -->
+<div class="img w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Page not found: please let us do the navigation</span>
+  </div>
+</div>
+</div>
+</body>
+</html>
