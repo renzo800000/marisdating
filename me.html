@@ -449,7 +449,9 @@ if(score > 0){
      //load matches
      DB.ref("users").once('value', function(snapshot){
        snapshot.forEach(function(d){
-         showMatch(username, d.key);    
+         if(d.key !== username){
+           showMatch(username, d.key);
+         }
        });
        setTimeout(function(){
        var content = document.getElementById("content_text");
